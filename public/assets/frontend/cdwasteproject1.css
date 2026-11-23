@@ -1,0 +1,213 @@
+.projectcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.projectheading{
+    /* Knowledge center about our various C&D waste projects */
+    width: 60%;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 70px;
+/* or 150% */
+text-align: center;
+letter-spacing: -0.5px;
+
+/* Dark */
+color: #323232;
+
+
+}
+.cd-main
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.projectsecondcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:90% ;
+
+}
+/* @media only screen and (max-width: 1000px) {
+    .projectsecondcontainer{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}  */
+.projectrightbox{
+   
+/* width: 50%; */
+display: flex;
+/* justify-content: center;
+align-items: center; */
+/* Rectangle 2075 */
+/* height: 250px; */
+background: #FFFFFF;
+box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+margin: 10px;
+padding-left: 0px;
+padding-top: 10px;
+padding-bottom: 10px;
+/* width: 100%; */
+}
+.projectleftbox{
+/* width: 50%; */
+display: flex;
+/* justify-content: center;
+align-items: center; */
+/* Rectangle 2075 */
+height: 230px;
+background: #FFFFFF;
+box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+margin: 10px;
+padding-left: 0px;
+/* padding-top: 10px;
+padding-bottom: 10px; */
+/* width: 100%; */
+width: 500px;
+transition: transform 0.3s ease-in-out;
+}
+
+.projectleftbox:hover{
+    transform:scale(1.05);
+}
+
+
+
+.projectdetailssbox{
+    padding-left: 10px;
+}
+.projectleftbox img{
+ width: 230px;
+ height: 230px;
+    }
+.projectrightbox img{
+        width: 230px;
+        height: 230px;
+           }
+    
+.projectblog{
+    margin-left: 13px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 22px;
+line-height: 60px;
+letter-spacing: -0.5px;
+
+/* Dark */
+color: #323232;
+
+
+
+}
+
+.projectblogdetails{
+/* In-depth research papers highlighting the environmental impact of C&D waste and the benefits of recycling and re-using such materials... */
+margin-top: -30px;
+margin-left: 13px;
+
+/* or 29px */
+letter-spacing: 0.0015em;
+color: #646464;
+
+font-family: Montserrat;
+font-size: 16px;
+font-weight: 400;
+line-height: 28.8px;
+letter-spacing: 0.0015em;
+
+
+
+}
+
+
+
+@media screen and (max-width: 1100px) {
+
+    .projectsecondcontainer{
+      
+       flex-direction: column;
+      
+       
+    }
+    .projectheading {
+        width: 90%;
+    }
+
+   
+
+
+
+}
+@media screen and (max-width: 650px) {
+
+    .projectsecondcontainer{
+      
+       flex-direction: column;
+      
+       
+    }
+    .projectleftbox img{
+        width: 100%;
+        height: 230px;
+           }
+   
+           .projectleftbox{
+  
+            margin-top: 10px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            padding-right: 0px;
+            flex-direction: column;
+            height: fit-content;
+            
+            }
+            .projectrightbox{
+  
+                margin-top: 10px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-right: 0px;
+                }
+                .projectblog {
+                    
+                   
+                    /* margin-left: 5px;
+                  
+                    font-family: 'Ubuntu';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 27px;
+                    letter-spacing: -0.5px;
+                    margin-bottom: 1px;; */
+                    
+                }
+                .projectblogdetails {
+                 
+                    /* font-size: 11px;
+                    margin-left: 5px;
+                    margin-top:1px ;
+                    margin-bottom: 0px;
+                    text-align: left; */
+                    text-align: justify;
+                    text-justify: inter-word;
+                    padding-right: 15px;
+                    
+                    
+                }
+               
+
+
+}

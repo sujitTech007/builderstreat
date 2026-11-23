@@ -1,0 +1,253 @@
+
+
+body{
+  background: #F2F2F2;
+
+}
+
+.test-main
+{
+    display: flex
+;
+    flex-direction: column;
+    margin-bottom: 40px;
+    top: -40px !important;
+    position: relative;
+
+}
+.test-content
+{
+  /* margin-top: 70px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testl1
+{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 0px;
+    letter-spacing: 0.0015em;
+    /* margin-left:160px;  */
+    color: #A8BC25;
+    text-align: center;
+
+    
+}
+.testl2
+{
+    font-family: Ubuntu;
+       font-size: 30px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #323232;
+    margin-top: 15px;
+    /* margin-left:160px; */
+
+    
+}
+.testl3
+{
+  font-family: Ubuntu;
+font-size: 16px;
+font-weight: 400;
+line-height: 28.8px;
+letter-spacing: 0.15000000596046448px;
+text-align: left;
+color: #646464;
+margin-top: 15px;
+/* margin-left:160px; */
+text-align: center;
+}
+.test-heading
+{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 93%;
+}
+.testr
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 20px;
+   
+   
+   
+}
+.testc
+{
+    gap:10px;
+    flex-grow: 1;
+    width: calc((100% - 60px) / 3);
+   
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 360px;
+    width:100%;
+position: relative;
+height: 330px;
+padding:25px;
+/* padding-:px;
+padding-:px; */
+gap: 0px;
+border-radius: 2px;
+border: 1px;
+opacity: 0px;
+
+      background-color: #FFFFFF;
+    
+      border: 1px solid #D8D8D8;
+    
+}
+.test-text
+{
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  
+  letter-spacing: 0.0015em;
+ 
+  color: #646464;
+  text-align: justify;
+text-justify: inter-word;
+
+  
+}
+.name-rating
+{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+ width: 100%;
+  gap:70px;
+  margin-top: 15px;
+ padding-top: 20px;
+  border-top: 1px solid #D8D8D8
+}
+.test-det
+{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.test-name
+{
+  font-family: Ubuntu;
+font-size: 16px;
+font-weight: 700;
+line-height: 18.38px;
+text-align: left;
+
+  color:#646464;
+}
+.test-title
+{
+  font-family: Ubuntu;
+font-size: 16px;
+font-weight: 400;
+line-height: 18.38px;
+text-align: left;
+
+  color: #969696;
+
+}
+.rating-star
+{
+  display: flex;
+  gap:8px;
+}
+.rate{
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.23px;
+  text-align: center;
+ color: #969696;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 6px;;
+
+}
+.stars
+{
+
+}
+@media only screen and (max-width: 700px) {
+  .testr {
+
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  }
+
+  .testc
+  {
+    margin-top:0px ;
+  }
+}
+
+
+
+@media only screen and (max-width: 700px) {
+ 
+
+  /* .testl1,
+  .testl2,
+  .testl3
+  {
+    margin-left:45px;
+  } */
+  .test-main
+  {
+    justify-content: center;
+  
+}
+}
+@media only screen and (max-width:1600px) {
+  .testc
+  {
+    margin-top:30px ;
+  }
+
+}
+.person
+{
+  position: absolute;
+  bottom:90%;
+}
+.slide
+{
+  width: 106px;
+  height: 4px;
+ 
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+ margin-top: 30px;;
+  align-items: center;
+  
+}
+.slide-btn{
+  width: 30px;
+height: 4px;
+top: 6317px;
+left: 667px;
+gap: 0px;
+opacity: 0px;
+background: #D8D8D8;
+border: none;
+}

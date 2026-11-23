@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Dashboard | Builderstreat</title>
+  <link rel="stylesheet" href="../assets/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+  <header class="bg-white position-fixed top-0 w-100 z-1">
+
+    <div class="container">
+      <div class="row">
+        <div class="d-flex justify-content-between w-100">
+          <div class="brand_logo">
+            <a class="brand bg-transparent" href="./index.html"><img src="../assets/images/logo.png" alt="logo"></a>
+          </div>
+          <div class="top-actions">
+
+
+            <!-- Notifications -->
+            <div class="dropdown">
+
+              <a class="icon-btn text-decoration-none" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="badge-dot"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end shadow border-0 p-0" style="width: 350px;">
+
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom">
+                  <h6 class="mb-0 fw-semibold">Notifications</h6>
+
+                  <span class="badge bg-primary rounded-pill">
+                    3 New
+                  </span>
+                </div>
+
+                <!-- Notification 1 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-primary">
+                      <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        New notification
+                      </div>
+
+                      <small class="text-muted">
+                        You have received a new notification.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        5 minutes ago
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- Notification 2 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-success">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        Profile updated
+                      </div>
+
+                      <small class="text-muted">
+                        Your profile has been successfully updated.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        1 hour ago
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- Notification 3 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-warning">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        Action required
+                      </div>
+
+                      <small class="text-muted">
+                        Please review your account information.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        Yesterday
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- View All -->
+                <div class="p-2 text-center">
+                  <a href="./notifications/index.html" class="btn btn-primary p-2 w-100 text-center d-block">
+                    View All Notifications
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- User Profile -->
+            <div class="dropdown">
+
+              <a href="#" class="user-pill text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <span class="avatar">
+                  <img src="../assets/images/avatar.png" alt="avatar">
+                </span>
+
+                <div>
+                  <strong>Priya Nair</strong>
+                  <small class="d-block small">
+                    Northyard Homes
+                  </small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down ms-2 small"></i>
+
+              </a>
+
+
+              <div class="dropdown-menu dropdown-menu-end shadow border-0 p-2">
+
+                <!-- Profile -->
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="./profile/index.html">
+
+                  <i class="fa-regular fa-user"></i>
+
+                  <span>Profile</span>
+                </a>
+
+
+                
+
+
+                <div class="dropdown-divider"></div>
+
+
+                <!-- Logout -->
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger" href="./logout.html">
+
+                  <i class="fa-solid fa-right-from-bracket"></i>
+
+                  <span>Logout</span>
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </header>
+  <div class="container">
+    <div class="user_app app">
+      <aside class="sidebar user_sidebar">
+        <div class="sidebar_nav">
+          <div class="role-chip"><i></i> Seller workspace</div>
+          <div class="nav-label">Workspace</div>
+          <nav class="nav flex-column">
+            <!-- Dashboard -->
+            <a class="nav-link active" href="./index.html">
+              <i class="fa-solid fa-table-columns"></i>
+              <span>Dashboard</span>
+            </a>
+
+            <!-- My Listings -->
+            <a class="nav-link" href="./listings/index.html">
+              <i class="fa-solid fa-list"></i>
+              <span>My Listings</span>
+            </a>
+
+            <!-- Add Material -->
+            <a class="nav-link" href="./listings/create.html">
+              <i class="fa-solid fa-plus"></i>
+              <span>Add Material</span>
+            </a>
+
+            <!-- Inventory -->
+            <!-- <a class="nav-link" href="./inventory/index.html">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span>Inventory</span>
+            </a> -->
+
+            <!-- Buyer Enquiries -->
+            <a class="nav-link" href="./enquiries/index.html">
+              <i class="fa-regular fa-comments"></i>
+              <span>Buyer Enquiries</span>
+            </a>
+
+            <!-- Offers Received -->
+            <a class="nav-link" href="./offers/index.html">
+              <i class="fa-solid fa-tag"></i>
+              <span>Offers Received</span>
+            </a>
+
+            <!-- Orders -->
+            <a class="nav-link" href="./orders/index.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>Orders</span>
+            </a>
+
+            <!-- Sales History -->
+            <a class="nav-link" href="./sales/index.html">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Sales History</span>
+            </a>
+
+            <!-- Messages -->
+            <a class="nav-link" href="./messages/index.html">
+              <i class="fa-regular fa-message"></i>
+              <span>Messages</span>
+            </a>
+
+            <!-- Payments -->
+            <a class="nav-link" href="./payments/index.html">
+              <i class="fa-regular fa-credit-card"></i>
+              <span>Payments</span>
+            </a>
+
+            <!-- Reviews -->
+            <a class="nav-link" href="./reviews/index.html">
+              <i class="fa-regular fa-star"></i>
+              <span>Reviews</span>
+            </a>
+
+            <!-- Profile & Business -->
+            <a class="nav-link" href="./profile/index.html">
+              <i class="fa-regular fa-user"></i>
+              <span>Profile & Settings</span>
+            </a>
+
+            <!-- Settings -->
+            <a class="nav-link" href="./settings/index.html">
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </a>
+
+            <!-- Logout -->
+            <a class="nav-link" href="./logout.html">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Logout</span>
+            </a>
+
+          </nav>
+        </div>
+      </aside>
+
+
+      <main class="content">
+        
+        <div class="page-head">
+          <div>
+            <h1>Welcome Back, Seller </h1>
+            <p>Track surplus lots, escrowed sales, and buyer demand across Ontario.</p>
+          </div>
+          <div class="actions"><a class="btn btn-primary" href="listings/create.html">Add material</a></div>
+        </div>
+        <section class="stats">
+            <!-- Active Listings -->
+            <article class="stat">
+                <div class="stat-icon icon-primary">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <div class="stat-content">
+                    <span>Active Listings</span>
+                    <strong>24</strong>
+                    <em>Currently available</em>
+                </div>
+            </article>
+
+
+          <!-- Total Enquiries -->
+          <article class="stat">
+              <div class="stat-icon icon-success">
+                  <i class="fa-solid fa-file-circle-question"></i>
+              </div>
+
+              <div class="stat-content">
+                  <span>Total Enquiries</span>
+                  <strong>48</strong>
+                  <em>From buyers</em>
+              </div>
+          </article>
+
+
+          <!-- Pending Offers -->
+          <article class="stat">
+              <div class="stat-icon icon-warning">
+                  <i class="fa-solid fa-tags"></i>
+              </div>
+
+              <div class="stat-content">
+                  <span>Pending Offers</span>
+                  <strong>9</strong>
+                  <em>Awaiting response</em>
+              </div>
+          </article>
+
+
+          <!-- Completed Sales -->
+          <article class="stat">
+              <div class="stat-icon icon-danger">
+                  <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div class="stat-content">
+                  <span>Completed Sales</span>
+                  <strong>32</strong>
+                  <em>Successfully completed</em>
+              </div>
+          </article>
+
+        </section>
+        <div class="card border-0 shadow-none mb-4 px-0 card_chart">
+
+    <div class="card-header border-0 bg-transparent">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+         
+                <h5 class="mb-1 fw-semibold">
+                    Seller Sales Overview
+                </h5>
+
+                <p class="text-muted mb-0 small">
+                    Monthly sales performance
+                </p>
+            </div>
+
+        </div>
+      
+
+
+
+    
+
+    <div class="card-body mt-4">
+        <canvas id="sellerSalesChart" height="100"></canvas>
+    </div>
+
+
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const sellerSalesChart = document.getElementById('sellerSalesChart');
+
+    new Chart(sellerSalesChart, {
+        type: 'line',
+
+        data: {
+            labels: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct'
+            ],
+
+            datasets: [{
+                label: 'Sales',
+                data: [
+                    12000,
+                    18000,
+                    15000,
+                    22000,
+                    28000,
+                    24000,
+                    32000,
+                    29000,
+                    38000,
+                    42000
+                ],
+
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value.toLocaleString();
+                        }
+                    }
+                },
+
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+    </div>
+
+
+
+<!-- =========================
+     My Material Listings
+========================= -->
+<div class="card border-0 shadow-none mb-4 p-0">
+
+    <div class="card-header bg-white border-0 p-0 py-3">
+        <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+                <h5 class="mb-1 fw-semibold">
+                    My Material Listings
+                </h5>
+
+                <p class="text-muted mb-0 small">
+                    Manage your listed building materials
+                </p>
+            </div>
+
+            <a href="#" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus me-1"></i>
+                Add Material
+            </a>
+
+        </div>
+    </div>
+
+    <div class="table-responsive theme_table">
+              <table class="table table-hover align-middle mb-0 enquiries-table" data-table="">
+
+            <thead class="table-light">
+                <tr>
+                    <th>Image</th>
+                    <th>Material</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- Tiles -->
+                <tr>
+                    <td>
+                        <img src="../assets/images/tiles-thumb.png"
+                             alt="Tiles"
+                             class="rounded"
+                             width="50"
+                             height="50">
+                    </td>
+
+                    <td>
+                        <span class="fw-semibold">Tiles</span>
+                    </td>
+
+                    <td>500 Sq.Ft</td>
+
+                    <td class="fw-semibold">
+                        $35
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1" style="font-size: 6px;"></i>
+                            Active
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="edit.html" class="btn bg-warning-subtle text-warning-emphasis border border-warning-subtle" title="Update">
+                                  <i class="fa-solid fa-pen"></i>
+                              </a>
+                          </div>
+                    </td>
+                </tr>
+
+
+                <!-- Steel -->
+                <tr>
+                    <td>
+                        <img src="../assets/images/thumb-3.png"
+                             alt="Steel"
+                             class="rounded"
+                             width="50"
+                             height="50">
+                    </td>
+
+                    <td>
+                        <span class="fw-semibold">Steel</span>
+                    </td>
+
+                    <td>800 Kg</td>
+
+                    <td class="fw-semibold">
+                        $58
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1" style="font-size: 6px;"></i>
+                            Active
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="edit.html" class="btn bg-warning-subtle text-warning-emphasis border border-warning-subtle" title="Update">
+                                  <i class="fa-solid fa-pen"></i>
+                              </a>
+                          </div>
+                    </td>
+                </tr>
+
+
+                <!-- Doors -->
+                <tr>
+                    <td>
+                        <img src="../assets/images/door.png"
+                             alt="Doors"
+                             class="rounded"
+                             width="50"
+                             height="50">
+                    </td>
+
+                    <td>
+                        <span class="fw-semibold">Doors</span>
+                    </td>
+
+                    <td>12 Units</td>
+
+                    <td class="fw-semibold">
+                        $2,500
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1" style="font-size: 6px;"></i>
+                            Sold
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="edit.html" class="btn bg-warning-subtle text-warning-emphasis border border-warning-subtle" title="Update">
+                                  <i class="fa-solid fa-pen"></i>
+                              </a>
+                          </div>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     Recent Buyer Enquiries
+========================= -->
+<div class="card border-0 shadow-none mb-4 p-0">
+
+    <!-- Header -->
+    <div class="card-header bg-white border-0 py-3 px-0">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+                <h5 class="mb-1 fw-semibold">
+                    Recent Buyer Quotation
+                </h5>
+
+                <p class="text-muted mb-0 small">
+                    Latest enquiries received from buyers
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Table -->
+    <div class="table-responsive theme_table">
+              <table class="table table-hover align-middle mb-0 enquiries-table" data-table="">
+            <thead class="table-light">
+
+                <tr>
+                    <th>Buyer</th>
+                    <th>Material</th>
+                    <th>Qty</th>
+                    <th>Offer</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <!-- Enquiry 1 -->
+                <tr>
+
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+
+                            <span class="bg-light rounded-circle d-flex align-items-center justify-content-center"
+                                  style="width:40px;height:40px;">
+                                <i class="fa-solid fa-user text-secondary"></i>
+                            </span>
+
+                            <span class="fw-semibold">
+                                Rahul Traders
+                            </span>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        Steel
+                    </td>
+
+                    <td>
+                        500 Kg
+                    </td>
+
+                    <td class="fw-semibold">
+                        $55/Kg
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1"
+                               style="font-size:6px;"></i>
+                            Pending
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                      <i class="fa-solid fa-eye"></i>
+                                </a>
+                          </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- Enquiry 2 -->
+                <tr>
+
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+
+                            <span class="bg-light rounded-circle d-flex align-items-center justify-content-center"
+                                  style="width:40px;height:40px;">
+                                <i class="fa-solid fa-user text-secondary"></i>
+                            </span>
+
+                            <span class="fw-semibold">
+                                ABC Builders
+                            </span>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        Tiles
+                    </td>
+
+                    <td>
+                        300 Sq.Ft
+                    </td>
+
+                    <td class="fw-semibold">
+                        $30/Sq.Ft
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-info-subtle text-info-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1"
+                               style="font-size:6px;"></i>
+                            Negotiating
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                      <i class="fa-solid fa-eye"></i>
+                                </a>
+                          </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- Enquiry 3 -->
+                <tr>
+
+                    <td>
+                        <div class="d-flex align-items-center gap-2">
+
+                            <span class="bg-light rounded-circle d-flex align-items-center justify-content-center"
+                                  style="width:40px;height:40px;">
+                                <i class="fa-solid fa-user text-secondary"></i>
+                            </span>
+
+                            <span class="fw-semibold">
+                                XYZ Interiors
+                            </span>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        Doors
+                    </td>
+
+                    <td>
+                        10 Units
+                    </td>
+
+                    <td class="fw-semibold">
+                        $2,000
+                    </td>
+
+                    <td>
+                        <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2">
+                            <i class="fa-solid fa-circle me-1"
+                               style="font-size:6px;"></i>
+                            Accepted
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+
+                        <div class="table-actions d-flex gap-2">                              
+                              <a href="view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                      <i class="fa-solid fa-eye"></i>
+                                </a>
+                          </div>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+      </main>
+    </div>
+  </div>
+  <div class="toast">Saved</div>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+
+</html>

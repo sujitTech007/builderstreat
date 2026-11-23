@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Details — BuildersTreat</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .md-crumbs {
+            font-size: .85rem;
+            color: #7a746b;
+            margin: 0 0 24px
+        }
+
+        .md-crumbs a {
+            color: #7a746b;
+            text-decoration: none
+        }
+
+        .md-crumbs a:hover {
+            color: #a84b32
+        }
+
+        .md-crumbs span {
+            margin: 0 6px
+        }
+
+        .md-top {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: start
+        }
+
+        .md-photo {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #e9e5de
+        }
+
+        .md-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+            display: block
+        }
+
+        .md-cat {
+            margin: 0 0 8px;
+            font-size: .9rem;
+            color: #7a746b
+        }
+
+        .md-title {
+            margin: 0 0 6px;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #111
+        }
+
+        .md-model {
+            margin: 0 0 20px;
+            font-size: 1rem;
+            color: #6f6a63
+        }
+
+        .md-pricebox {
+            padding: 20px;
+            border: 1px solid #ebe7e0;
+            border-radius: 16px;
+            background: #fff;
+            margin-bottom: 20px
+        }
+
+        .md-price-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px 12px
+        }
+
+        .md-now {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #a84b32
+        }
+
+        .md-unit {
+            font-size: 1rem;
+            color: #6f6a63
+        }
+
+        .md-save {
+            padding: 5px 14px;
+            border-radius: 999px;
+            background: #e8f5ec;
+            color: #166534;
+            font-size: .85rem;
+            font-weight: 700
+        }
+
+        .md-market {
+            margin: 10px 0 0;
+            font-size: .95rem;
+            color: #7a746b
+        }
+
+        .md-market s {
+            color: #8b857d
+        }
+
+        .md-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px
+        }
+
+        .md-steps {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px
+        }
+
+        .md-steps li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: .92rem;
+            color: #4b463f
+        }
+
+        .md-steps b {
+            flex: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #f3ede6;
+            color: #a84b32;
+            font-size: .8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .md-detail {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 40px;
+            margin-top: 56px
+        }
+
+        .md-h {
+            margin: 0 0 14px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #111
+        }
+
+        .md-desc p {
+            margin: 0 0 12px;
+            line-height: 1.7;
+            color: #4b463f
+        }
+
+        .md-specs {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .92rem
+        }
+
+        .md-specs th,
+        .md-specs td {
+            padding: 11px 0;
+            border-bottom: 1px solid #efebe4;
+            text-align: left;
+            vertical-align: top
+        }
+
+        .md-specs th {
+            width: 42%;
+            font-weight: 500;
+            color: #7a746b
+        }
+
+        .md-specs td {
+            color: #111;
+            font-weight: 500
+        }
+
+        .md-related {
+            margin-top: 64px
+        }
+
+        .md-rel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px
+        }
+
+        .md-rel {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ebe7e0;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow .2s
+        }
+
+        .md-rel:hover {
+            box-shadow: 0 10px 24px rgba(60, 40, 20, .12)
+        }
+
+        .md-rel-img {
+            position: relative;
+            aspect-ratio: 16/10;
+            background: #e9e5de;
+            overflow: hidden
+        }
+
+        .md-rel-img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover
+        }
+
+        .md-rel-body {
+            padding: 14px 16px
+        }
+
+        .md-rel-body h4 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111
+        }
+
+        .md-rel-body p {
+            margin: 0;
+            font-size: .95rem;
+            font-weight: 700;
+            color: #a84b32
+        }
+
+        .md-rel-body small {
+            font-weight: 400;
+            color: #7a746b
+        }
+
+        .md-actions .bt-view {
+            background: #a84b32;
+            border-color: #a84b32;
+            color: #fff
+        }
+
+        .md-actions .bt-view:hover {
+            background: #8f3f29;
+            border-color: #8f3f29;
+            color: #fff
+        }
+
+        @media (max-width:991px) {
+
+            .md-top,
+            .md-detail {
+                grid-template-columns: 1fr;
+                gap: 28px
+            }
+
+            .md-title {
+                font-size: 1.6rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="wrap nav">
+            <div class="brand">
+                <a href="index.html"><img src="assets/images/logo.png" alt="BuildersTreat"></a>
+            </div>
+            <nav class="links">
+                <a href="index.html">Home</a>
+                <a href="about-us.html">About Us</a>
+                <a href="our-categories.html">Our Categories</a>
+                <a href="material-list.html">Material List</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact-us.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-ghost btn-sm">Log In</a>
+                <a href="register.html" class="btn btn-amber btn-sm">Sign Up</a>
+            </div>
+            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main class="section wrap">
+        <nav class="md-crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span>/</span><a href="material-list.html">Material
+                List</a><span>/</span><strong>Bricks</strong>
+        </nav>
+
+        <!-- TOP: photo + summary -->
+        <div class="md-top">
+            <div class="md-photo"><img src="assets/images/product.jpg" alt="Bricks"></div>
+            <div>
+                <p class="md-cat">Bricks · LOT #5119</p>
+                <h1 class="md-title">Bricks</h1>
+                <p class="md-model">JK Bricks, red clay</p>
+
+                <div class="md-pricebox">
+                    <div class="md-price-row">
+                        <div><span class="md-now">$0.40</span> <span class="md-unit">/ brick</span></div>
+                        <span class="md-save">Save ~50%</span>
+                    </div>
+                    <p class="md-market">Market price <s>$0.60 – $1.00</s> <span>/ brick</span></p>
+                    <div class="md-actions">
+                        <a href="login.html" class="btn btn-amber">Enquire Now</a>
+                        <a href="material-list.html" class="btn btn-ghost">Back to Listings</a>
+                    </div>
+                </div>
+
+                <ul class="md-steps">
+                    <li><b>1</b><span>Log in and send an enquiry for the quantity you need.</span></li>
+                    <li><b>2</b><span>Agree the price and pickup or delivery with the seller.</span></li>
+                    <li><b>3</b><span>Pay into escrow. Funds are released once you confirm the material.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DETAILS: description + specs -->
+        <div class="md-detail">
+            <div class="md-desc">
+                <h2 class="md-h">Description</h2>
+                <p>Strong, reusable red clay JK Bricks for walls, boundary work and general masonry.</p>
+                <p>Sold per brick from Lot #5119. Confirm the available quantity and pickup arrangements when you
+                    enquire.</p>
+            </div>
+            <div>
+                <h2 class="md-h">Specifications</h2>
+                <table class="md-specs">
+                    <tbody>
+                        <tr>
+                            <th>Category</th>
+                            <td>Bricks</td>
+                        </tr>
+                        <tr>
+                            <th>Lot No.</th>
+                            <td>#5119</td>
+                        </tr>
+                        <tr>
+                            <th>Model</th>
+                            <td>JK Bricks, red clay</td>
+                        </tr>
+                        <tr>
+                            <th>Unit of sale</th>
+                            <td>Per brick</td>
+                        </tr>
+                        <tr>
+                            <th>Our price</th>
+                            <td>$0.40 / brick</td>
+                        </tr>
+                        <tr>
+                            <th>Market price</th>
+                            <td>$0.60 – $1.00 / brick</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RELATED -->
+        <section class="md-related">
+            <h2 class="md-h">More Surplus Materials</h2>
+            <div class="md-rel-grid">
+                <a class="md-rel" href="material-details.html">
+                    <div class="md-rel-img"><img src="assets/images/tiles-thumb.png" alt="Porcelain Floor Tiles"
+                            loading="lazy"></div>
+                    <div class="md-rel-body">
+                        <h4>Porcelain Floor Tiles</h4>
+                        <p>$2.25 <small>/ sq ft</small></p>
+                    </div>
+                </a>
+                <a class="md-rel" href="material-details.html">
+                    <div class="md-rel-img"><img src="assets/images/wood.png" alt="Framing Lumber"
+                            loading="lazy"></div>
+                    <div class="md-rel-body">
+                        <h4>Framing Lumber</h4>
+                        <p>$2.75 <small>/ piece</small></p>
+                    </div>
+                </a>
+                <a class="md-rel" href="material-details.html">
+                    <div class="md-rel-img"><img src="assets/images/door.png" alt="Interior Doors"
+                            loading="lazy"></div>
+                    <div class="md-rel-body">
+                        <h4>Interior Doors</h4>
+                        <p>$195.00 <small>/ door</small></p>
+                    </div>
+                </a>
+                <a class="md-rel" href="material-details.html">
+                    <div class="md-rel-img"><img src="assets/images/product-3.jpg" alt="Cement" loading="lazy"></div>
+                    <div class="md-rel-body">
+                        <h4>Cement</h4>
+                        <p>$10.50 <small>/ bag</small></p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- CTA BANNER -->
+    <section class="section-tight wrap pt-0">
+        <div class="cta-banner">
+            <h2>Got a site that's about<br>to strip out?</h2>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <a href="register.html" class="btn">List Your Surplus</a>
+                <a href="contact-us.html" class="btn btn-ghost">Talk to Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand" style="margin-bottom:6px;">
+                        <div class="brand-text" style="color:var(--paper);"><img src="assets/images/logo.png"
+                                alt="Builderstreat Logo"></div>
+                    </div>
+                    <p>At Builderstreat, our mission is to revolutionize the construction and demolition waste recycling
+                        industry
+                        by providing a seamless and sustainable solution for material exchange. We aim to connect
+                        stakeholders,
+                        minimize waste, and promote eco-friendly practices that build a greener future for all.</p>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul class="ps-0">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="our-categories.html">Our Categories</a></li>
+                        <li><a href="material-list.html">Listings</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Contact</h5>
+                    <ul class="ps-0">
+                        <li><a href="mailto:info@builderstreat.ca">info@builderstreat.ca</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-8900</a></li>
+                        <li>8920 Woodbine Ave Unit 304, Markham, ON L3R 9W9, Canada</li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/builderstreatsolutions/" aria-label="Facebook"
+                            target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/builderstreatsolutions/" aria-label="Instagram"
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/builderstreat-solutions-inc/" aria-label="LinkedIn"
+                            target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Builderstreat. All rights reserved.</span>
+                <span><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a
+                        href="terms-and-conditions.html">Terms &amp; Conditions</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile menu
+        const toggle = document.querySelector(".mobile-toggle");
+        const navLinks = document.querySelector("nav.links");
+        const navCta = document.querySelector(".nav-cta");
+        toggle.addEventListener("click", () => {
+            const showing = navLinks.style.display === "flex";
+            navLinks.style.display = showing ? "none" : "flex";
+            navCta.style.display = showing ? "none" : "flex";
+            navLinks.style.flexDirection = "column";
+            navLinks.style.position = "absolute";
+            navLinks.style.top = "64px";
+            navLinks.style.left = "0";
+            navLinks.style.right = "0";
+            navLinks.style.background = "var(--paper)";
+            navLinks.style.padding = "20px 28px";
+            navLinks.style.borderBottom = "1px solid var(--line)";
+            navLinks.style.gap = "18px";
+            navCta.style.position = "absolute";
+            navCta.style.top = showing ? "64px" : "260px";
+            navCta.style.left = "28px";
+        });
+    </script>
+</body>
+
+</html>

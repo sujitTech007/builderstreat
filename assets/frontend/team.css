@@ -1,0 +1,91 @@
+body {
+    background: #F2F2F2;
+
+}
+
+.team-main {
+    display: flex;
+    justify-content: center;
+    /* max-height: 1200px; */
+    height: 530px;
+    /* height: 100%; */
+
+
+    margin-top: 80px;
+
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .team-main {
+
+        height: 880px;
+
+
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .team-main {
+
+        height: 1200px;
+
+
+    }
+}
+
+
+
+
+
+
+.trow {
+  display: flex
+;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 5px;
+    position: relative;
+    bottom: 40px;
+}
+
+.name {
+    background-color: #FFFFFF;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #6E7E1D;
+    width: 100%;
+
+
+
+
+}
+
+.name3 {
+    margin-top: 25px;
+}
+
+.title {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 25.2px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+    color: #FFFFFF;
+
+
+}
+
+.info {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 25.2px;
+    letter-spacing: 0.0015em;
+    text-align: Â center;
+}

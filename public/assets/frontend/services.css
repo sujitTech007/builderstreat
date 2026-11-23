@@ -1,0 +1,151 @@
+.services-main
+{
+display: flex;
+flex-direction: column;
+margin-top: 50px;
+
+}
+body{
+    background: #F2F2F2;
+
+}
+.text-center
+{
+    margin-top: 70px;
+}
+.sl1
+{
+   font-family: Montserrat;
+    font-size: 18px !important;
+    font-weight: 600;
+    line-height: 43.2px;
+    letter-spacing: 0.0015em;
+    margin-left: 130px;
+    color: #A8BC25;
+    justify-content: center !important;
+    display: flex !important
+;
+
+    
+}
+.sl2
+{
+   font-family: Ubuntu;
+    font-size: 30px !important;
+    font-weight: 700;
+    line-height: 30px !important;
+    letter-spacing: -0.5px;
+    text-align: left;
+    color: #323232;
+    /* margin-top: 20px; */
+    margin-left: 130px;
+    display: flex !important
+;
+    justify-content: center !important;
+
+    
+}
+
+.scol:hover p
+{
+    color:#FFFFFF;
+}
+.scol:hover span
+{
+    color:#FFFFFF;
+}
+.scol:hover path
+{
+fill: #6E7E1D;
+
+}
+.scol:hover rect
+{
+fill: #FFFFFF;
+
+}
+.scol:hover path
+{
+stroke: #6E7E1D;
+
+}
+
+
+.srow
+{
+    display: flex;
+   flex-direction: row;
+    justify-content: space-around;
+    
+    gap: 30px;
+   
+   
+   
+}
+.scol
+{
+    gap:10px;
+    flex-grow: 1;
+    width: calc((100% - 60px) / 3);
+   
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: center;
+    align-items: flex-start;
+    height: 250px;
+    max-width:349px;
+    width: 100%;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+	  padding-top: 10px;
+      transition: transform 0.6s ease-in-out ;
+}
+.scol:hover{
+    background: #6E7E1D;
+    transform: scale(1.05);
+
+}
+
+.service-type
+{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+    color: #111010;
+   
+}
+.service-det
+{
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    text-align: left;
+    color: #686868;
+    text-align: justify;
+  text-justify: inter-word;
+   
+    
+
+
+    
+}
+@media only screen and (max-width: 1400px) {
+    .sl1,
+    .sl2{
+align-items: center;
+text-align: center;
+margin:0px;;
+    }
+    .services-main
+    {
+        margin-top: 10px;
+    }
+    .srow{
+        margin: auto;
+    }
+   
+  }

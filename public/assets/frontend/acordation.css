@@ -1,0 +1,159 @@
+.FAQ{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    background-color: #FAFFE1;
+    padding-bottom: 40px;
+    
+    }
+    
+ 
+    .faqleft{
+        width: 40%;
+        padding-left: 5%;
+        padding-right: 10%;
+            position: relative;
+    top: 77px;
+    }
+    .faqright{
+      width: 60%;
+      padding-top: 4%;
+      
+    }
+    .faqheading{
+        /* Frequently Asked Questions */
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    /* or 160% */
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    
+    color: #1B3138;
+    
+    }
+    .faqheadingDeatils{
+    /* Explore our FAQs for quick answers to common inquiries and concerns. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+    color: #646464;
+    
+    
+    }
+    
+    @media screen and (max-width: 720px) {
+        .FAQ{
+            flex-direction: column;
+            margin: auto;
+        }
+        .faqleft{
+            width: 100%;
+        }
+        .faqright{
+            width: 100%;
+            margin: auto;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* -------------------------------------- */
+    body {
+        font-family: 'Montserrat';
+    }
+    
+    .ab_accordion {
+        width: 90%;
+       margin-left: -13%;
+    }
+    
+    .ab_accordion_content {
+        display: none;
+    }
+    
+    .ab_accordion_header {
+        cursor: pointer;
+        background-color: #ffffff;
+        padding: 13px;
+        font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+    color: #646464;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+        margin-top: 16px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .plus
+    {
+        width: 24px;
+    height: 24px;
+    
+    padding: 2px;
+    
+    
+    }
+    
+    .ab_accordion_header.active {
+        height: 50px;
+        background-color: #6E7E1D;;
+        color: #fff;
+       
+    }
+    
+    .ab_accordion_content {
+        padding: 12px;
+        animation: fade-in-up 0.3s ease-in-out;
+        border-left: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+        text-align: justify;
+    text-justify: inter-word;
+    }
+    
+    .ab_accordion_header i {
+        float: right;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    .ab_accordion_header.active i {
+        transform: rotate(180deg);
+    }
+    
+    @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @media screen and (max-width: 720px) {
+        .ab_accordion {
+            padding-left: 0px;
+            margin: auto;
+        }
+    }

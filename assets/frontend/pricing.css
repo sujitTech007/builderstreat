@@ -1,0 +1,292 @@
+body{
+    background: #F2F2F2;
+
+}
+
+.pricing-main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+.pl1
+{
+    font-family: Montserrat;
+       font-size: 18px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.0015em;
+    /*margin-left:105px; */
+    text-align: center;
+    color: #A8BC25;
+
+    
+}
+.pl2
+{
+       font-family: Ubuntu;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #323232;
+    margin-top: 0px;
+    padding-bottom: 11px;
+
+    
+}
+.prow
+{
+display: flex;
+justify-content: space-between;
+gap: 30px;
+}
+.container
+{
+margin-top: 70px;
+
+}
+.pcol {
+    /* max-width: 344.49px;
+
+  height: 484.37px; */
+    width: 100%;
+    gap: 15px;
+    flex-grow: 1;
+    width: calc((100% - 60px) / 3); /* Calculate width for each column */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #C6C6C6;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    transition: transform 0.6s ease-in-out;
+}
+
+
+.pcol:hover{
+    background-color: #6E7E1D;   
+}
+.pcol:hover .choose-btn
+{
+    background-color:#FFFFFF;
+    color:#6E7E1D;
+}
+.pcol:hover .pack-type
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .dollar
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .amt
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .year
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .pack-det
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .point-text
+{
+    color:#FFFFFF;
+    
+}
+.pcol:hover .gem
+{
+    border: 4px solid #6E7E1D;
+    
+}
+.pcol:hover path 
+{
+   fill:#6E7E1D;
+   
+    
+}
+.pcol:hover rect
+{
+   fill:#FFFFFF;
+   
+    
+}
+
+
+
+
+
+.point-text svg{
+    background-color: #6E7E1D;
+    border-radius: 50%;
+    padding: 0px;
+    color: #fff;
+}
+
+
+
+.pack{
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top:70px;
+}
+.pack-type
+{
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29.26px;
+    text-align: center;
+    color: #1B1B1B;
+
+    
+}
+.pack-det
+{
+text-align: center;
+font-family: Montserrat;
+font-size: 12px;
+font-weight: 500;
+line-height: 14.63px;
+color: #6C6C6C;
+margin-top:10px;
+
+
+
+}
+.dollar
+{
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.5px;
+    text-align: center;
+    color: #1B1B1B;
+    margin-bottom: 20px;
+
+
+    
+}
+.amt {
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 78.02px;
+    text-align: center;
+    color: #1B1B1B;
+}
+.year
+{
+    color: #1B1B1B;
+    font-family: Montserrat;
+font-size: 12px;
+font-weight: 500;
+line-height: 14.63px;
+text-align: center;
+
+}
+.choose-btn
+{
+    background: #6E7E1D;
+    font-family: Montserrat;
+font-size: 14px;
+font-weight: 500;
+/* line-height: 17.07px; */
+text-align: center;
+color:#FFFFFF;
+border: none;
+height:43px;
+width:169px;
+padding: 10px;
+text-decoration: none !important;
+gap:10px;
+border-radius:24px;
+
+
+
+}
+.point-text
+{
+
+/* gap:20px; */
+margin-bottom:5px;
+}
+.points
+{
+    display: flex;
+    flex-direction: column;
+    /* gap:10px; */
+}
+.gem
+{
+    width: 104.39px;
+height: 104.39px;
+border-radius: 50%;
+border: 1px solid #C6C6C6;
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+bottom:89%;
+background-color: #FFFFFF;
+
+
+}
+@media only screen and (max-width: 1000px) {
+
+    .prow{
+        display: flex;
+        flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   
+    }
+    .pl1,
+    .pl2{
+align-items: center;
+text-align: center;
+margin:0px;;
+    }
+    .pcol
+    {
+        width:344px;
+        margin-top: 40px;;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+/* 
+ 
+  .choose-btn.active {
+    background-color:#FFFFFF;
+    color: #6E7E1D;
+    
+
+} */

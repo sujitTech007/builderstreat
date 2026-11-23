@@ -1,0 +1,145 @@
+.buttongetStared{
+    display: flex;
+   
+    justify-content:center;
+    align-items: center;
+   
+    width: 154px;
+    height: 43px;
+
+    background: #6E7E1D;
+    border-radius: 2px;
+    border: none;
+    color: #FFFFFF;
+    font-family: Montserrat;
+font-size: 16px;
+font-weight: 500;
+line-height: 28.8px;
+text-align: center;
+
+    
+    
+    
+    }
+    .aboutContainer{
+        background-color: #323232;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 25px;
+        padding-bottom: 30px;
+        margin-top: 50px;
+    }
+    
+    .aboutlefpart {
+    width: 30%;
+    padding-left: 4%;
+    
+    }
+    .aboutrightpart{
+        width: 60%;
+        font-family: 'Montserrat';
+        color: white;
+        padding-right: 10%;
+    }
+    
+    .aboutdetails{
+       /* font-size: 16px;
+       font-weight: 300;
+       font-family: 'Montserrat';
+       line-height: 180%; */
+       /* GREEN CONSTRUCTION is an App/Website that brings contractors together to buy and sell their excess materials and used equipment. BUILT by Contractors FOR Contractors. Our team understands your need to improve your bottom line, clear out your yard and reduce waste. GREEN CONSTRUCTION has finally bridged the gap and created a solution for many industries.Our app is designed for all contractors in commercial, residential, industrial, manufacturing, farming and marine contracting. We founded GREEN CONSTRUCTION in the Bay Area and are eager to assist contractors in California and nationwide. Simple, clean, and easy to navigate. Download the GREEN CONSTRUCTION App today! (Available in the Apple and Android stores soon!) */
+    width: 100%;
+    /* height: 115px; */
+    /* left: 489px; */
+    top: 107px;
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 180%;
+    /* or 29px */
+    letter-spacing: 0.0015em;
+    text-align: justify;
+    text-justify: inter-word;
+
+    color: #FFFFFF;
+    
+    
+    }
+    .aboutaboutus{
+    width: 130px;
+    height: 43px;
+    /* left: 489px; */
+    top: 44px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 180%;
+    letter-spacing: 0.0015em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+    }
+    .aboutimages{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column; /* Change flex direction to column */
+        align-items: flex-start;
+        align-items: center;
+     }
+    
+    @media screen and (max-width: 920px) {
+        .aboutContainer {
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* .aboutdetails p{
+            width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        padding-left: 15px;
+     
+        } */
+     .aboutrightpart{
+        
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;;
+        padding: 10px;
+        width: 100%;
+    
+     }
+     .aboutrightpart span{
+        
+        /* display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center; */
+        align-items: center;
+    
+     }
+     .aboutlefpart{
+        width: 100%;
+        padding: 0px;
+     }
+     .aboutimages{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column; 
+        
+        align-items: center;
+     }
+    
+    }

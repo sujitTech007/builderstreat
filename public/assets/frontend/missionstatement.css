@@ -1,0 +1,229 @@
+
+
+.missioncontainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.missionleftbox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.missionstatement{
+      margin-top: 10%;
+    height: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6E7E1D;
+}
+
+.missionBuildersTreat{
+    margin-top: -1%;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+/* line-height: 60px; */
+letter-spacing: -0.5px;
+color: #1B3138;
+}
+.missiondetails{
+    margin-top: -2%;
+width: 77%;
+height: 290px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 180%;
+letter-spacing: 0.15px;
+text-align: justify;
+text-justify: inter-word;
+
+
+/* Medium Dark */
+color: #646464;
+
+}
+
+.missionrightbox{
+    margin-top: 5%;
+    width: 26%;
+    background: #6E7E1D;
+    height: 390px;
+    /* padding-right: 1%; */
+    margin-left: 120px;
+
+}
+.imagebackground{
+    margin-top: 2%;
+    margin-left: -17%;
+position: absolute;
+width: 40%;
+transition: transform 0.3s ease-in-out;
+}
+
+.imagebackground:hover{
+    transform:scale(1.05);
+}
+
+
+
+
+
+
+
+
+/* second box css */
+.missionsecondcontainer{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 85%;
+    margin: auto;
+}
+
+
+.missionsecondleftbox{
+width: 50%;
+}
+
+.missionsecondrightbox{
+ width: 48%;
+
+ 
+}
+.missinimagess{
+width: 90%;
+margin-top: 120px;
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40.5%, #000000 100%);
+transition: transform 0.3s ease-in-out;
+}
+
+.missinimagess:hover{
+    transform:scale(1.05);
+}
+    
+
+
+.firstline{
+   /* margin-top: 5%; */
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 15px;
+letter-spacing: 0.0015em;
+text-transform: uppercase;
+
+color: #6E7E1D;
+}
+
+
+
+.headingofmission{
+font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+    color: #1B3138;
+}
+
+.detailsofmission{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 25px;
+/* or 29px */
+letter-spacing: 0.0015em;
+text-align: justify;
+text-justify: inter-word;
+color: #646464;
+
+
+}
+
+
+@media screen and (max-width: 550px) {
+    .missioncontainer{
+            flex-direction: column;
+        }
+        
+       
+            .missionleftbox {
+                width: 90%;
+                margin-left: 20px;
+        }
+
+        
+        .missionrightbox {
+            width: 60%;
+           
+        }
+
+        .missionrightbox {
+       
+     
+            height: 190px;
+          padding-right: 1%; 
+           
+       }
+            .imagebackground{
+                width: 70%; 
+            }
+            .missiondetails
+            {
+                height: 100%;
+                width: 100%;
+            }
+
+            .missionsecondcontainer{
+                flex-direction: column;
+            }
+            .missionsecondleftbox{
+                width: 100%;
+                margin-top: -120px;
+            }
+            .missionsecondrightbox{
+                width: 100%;
+            }
+          
+    }
+
+    @media screen and (max-width: 780px) and (min-width: 550px) {
+        .missionrightbox {
+            /* width: 60%; */
+            height: 235px;
+        }
+        .missiondetails {
+            height: 100%;
+            
+        }
+    }
+
+    @media screen and (max-width: 830px) and (min-width: 780px) {
+        .missionrightbox {
+            /* width: 60%; */
+            height: 240px;
+        }
+        .missiondetails {
+            height: 100%;
+        }
+     
+    }
+    
+    @media screen and (min-width: 1300px) {
+      
+    }

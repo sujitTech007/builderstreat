@@ -1,0 +1,62 @@
+.responsive-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden; /* Ensures only visible images are shown */
+}
+
+.responsive-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.responsive-slide {
+    flex: 0 0 31%; /* Adjusted to fit 3 slides with margins */
+    max-width: 31%; /* Leaves space for margin */
+    position: relative;
+    margin: 0 1.5%; /* Adds 1% margin on both sides */
+}
+
+.responsive-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .responsive-slide {
+        flex: 0 0 48%; /* Two images per slide on smaller screens */
+        max-width: 48%;
+        margin: 0 1%; /* 1% margin on both sides */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .responsive-slide {
+        flex: 0 0 98%; /* One image per slide on mobile screens */
+        max-width: 98%;
+        margin: 0 1%; /* 1% margin on both sides */
+    }
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}

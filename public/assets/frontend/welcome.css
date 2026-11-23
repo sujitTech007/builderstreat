@@ -1,0 +1,590 @@
+.mainContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 85%;
+    margin: auto;
+    height: 85%;
+    margin-top: 150px !important;
+}
+
+.leftsideContainer {
+    width: 46%;
+    margin-top: 30px;
+}
+
+.welcometobuildersTreat {
+    color: #6E7E1D;
+    font-size: 13px;
+    font-family: 'Montserrat';
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.leftsideContainer h1 {
+    font-family: 'Ubuntu';
+    font-weight: bold;
+    font-size: 33px;
+}
+
+.rightsideContainer {
+    width: 50%;
+    position: relative;
+}
+
+.welcomeDetails {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: #646464;
+    line-height: 28px;
+    padding-right: 4%;
+    text-align: justify;
+    word-spacing: 0px;
+    text-justify: inter-word;
+}
+
+.buttongetStared {
+    color: white;
+    font-size: 16px;
+    background-color: #6E7E1D;
+    padding: 20px;
+    border: none;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.greenborderrighttop {
+    position: absolute;
+    top: 25px;
+    margin-left: 25px;
+    width: 576px;
+    height: 576px;
+    background-color: #6E7E1D;
+    z-index: 0;
+}
+
+.welcomevedio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.btn:hover {
+    color: black;
+    background-color: #ffffff;
+    border-color: #6e7e1d;
+    border: 1px solid #6e7e1d;
+}
+
+iframe {
+    border: 0;
+    height: 400px;
+    width: 100%;
+}
+
+p.footer-p {
+    width: 400px;
+    position: absolute;
+    padding: 80px 0;
+    color: white;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+    word-spacing: -1px;
+    font-family: Montserrat;
+}
+
+@media screen and (max-width: 1200px) {
+    .mainContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 1000px;
+    }
+
+    .rightsideContainer {
+        width: 100%;
+        height: 800%;
+    }
+
+    .leftsideContainer {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+}
+
+#myVideo {
+    width: 566px;
+    height: 566px;
+}
+
+@media screen and (max-width: 675px) {
+    /* .rightsideContainer {
+        display: none;
+    } */
+
+    #myVideo {
+        width: 100%;
+        height: auto;
+        top: 80px;
+        position: relative;
+    }
+
+    .buttongetStared {
+        margin-bottom: 30px;
+    }
+
+    .welcomevedio {
+        margin-bottom: 30px;
+    }
+
+    .greenborderrighttop {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        bottom: 11px !important;
+    }
+
+    .leftsideContainer {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .leftsideContainer h1 {
+        font-family: 'Ubuntu';
+        font-weight: bold;
+        font-size: 45px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .mainContainer {
+        display: flex;
+        justify-content: flex-start;
+        width: 85%;
+        margin: auto;
+        margin-top: 100px !important;
+    }
+
+    .leftsideContainer h1 {
+        font-family: 'Ubuntu';
+        font-weight: bold;
+        font-size: 23px;
+    }
+
+    .missinimagess {
+        width: 90%;
+        margin-top: 110px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40.5%, #000000 100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .firstline {
+        margin-top: 8%;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 0px;
+        letter-spacing: 0.0015em;
+        text-transform: uppercase;
+        color: #6E7E1D;
+    }
+
+    .missionBuildersTreat {
+        margin-top: -1%;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        letter-spacing: -0.5px;
+        color: #1B3138;
+    }
+
+    .headingofmission {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 28px;
+        letter-spacing: -0.5px;
+        text-transform: capitalize;
+        color: #1B3138;
+    }
+
+    .detailsofmission {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.0015em;
+        text-align: justify;
+        text-justify: inter-word;
+        color: #646464;
+    }
+
+    .category-section {
+        bottom: 30px;
+        position: relative;
+    }
+
+    .missionsecondleftbox {
+        width: 100%;
+        margin-top: -100px;
+    }
+
+    iframe {
+        border: 0;
+        height: 185px !important;
+        padding: 0px 0px 0px;
+    }
+
+    .sl2 {
+        font-family: Ubuntu;
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: -0.5px;
+        color: #323232;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .services-main {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px !important;
+    }
+
+    .servicesthreeslicecontainer {
+        bottom: 20px;
+        position: relative;
+    }
+
+    .projectheading {
+        width: 60%;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px !important;
+        line-height: 30px !important;
+        text-align: center;
+        letter-spacing: -0.5px;
+        color: #323232;
+    }
+
+    .pl2 {
+        font-family: Ubuntu;
+        font-size: 23px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        text-align: center;
+        color: #323232;
+        margin-top: 8px;
+        padding-bottom: 16px;
+    }
+
+    .container.pp {
+        bottom: 45px;
+        position: relative;
+    }
+
+    .team-main {
+        padding: 0px;
+    }
+
+    .trow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 5px;
+        bottom: 56px;
+        position: relative;
+    }
+
+    .footer-main {
+        min-height: 366px;
+        height: auto;
+        width: 100%;
+        border: none;
+        background: #323232;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        top: 0;
+        position: relative;
+    }
+
+    .future-hero {
+        background-image: url(./images/bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 517px;
+        display: flex;
+        flex-direction: column;
+        background-position: center;
+        top: 0;
+        position: relative;
+    }
+
+    .tcont {
+        margin-top: 64px;
+    }
+
+    .future-hero-text {
+        color: #ffffff;
+        z-index: 9;
+        align-items: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 771px;
+        width: 90%;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 5px;
+    }
+
+    .card {
+        width: 100% !important;
+        border: none !important;
+        z-index: 1 !important;
+        margin-bottom: 40px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-top: 24px !important;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    input[type="password"] {
+        width: 100%;
+        max-width: 100%;
+        height: 50px;
+        border: 2px solid #e8e8e8;
+        padding: 0 20px;
+    }
+
+    .faq h1 {
+        font-size: 23px !important;
+        line-height: 0px !important;
+        padding-top: 13% !important;
+    }
+
+    .testi h1 {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 25px;
+        letter-spacing: -0.5px;
+        color: #1B3138;
+    }
+
+    .items {
+        width: 100% !important;
+        margin: 0px auto;
+        margin-top: 8px !important;
+    }
+
+    .text-blog h1 {
+        width: 100% !important;
+        height: 85px !important;
+        margin: 0 auto;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px !important;
+        line-height: 35px !important;
+        text-align: center;
+        letter-spacing: -0.5px;
+        color: #323232;
+    }
+
+    .missionsecondcontainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 85% !important;
+        margin-bottom: 0px !important;
+       
+    }
+
+    .test-content {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .testl2 {
+        font-family: Ubuntu;
+        font-size: 23px !important;
+        font-weight: 700;
+        line-height: 35px;
+        letter-spacing: -0.5px;
+        text-align: center;
+        color: #323232;
+        margin-top: 15px;
+    }
+
+    .most-popular-categories {
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px !important;
+        line-height: 8px !important;
+        letter-spacing: -0.5px;
+        text-transform: capitalize;
+        color: #323232;
+        text-align: center;
+    }
+
+    div#hjfhj {
+        top: 46px;
+        position: relative;
+                padding: 0px 0px 80px !important;
+    }
+
+    .cate-sec {
+        padding-top: 0px !important;
+    }
+
+h2.cat-heading-h2 {
+    color: #030302;
+    font-size: 26px !important;
+    font-weight: 600;
+    text-align: center !important;
+}
+    .foot-text-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+        padding-bottom: 0px;
+    }
+
+    p.footer-p {
+        width: 100%;
+        position: relative;
+        padding: 39px 0 0px;
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        text-align: justify;
+        font-family: Montserrat;
+        word-spacing: -1px;
+    }
+
+    .our-team {
+        background: url(../../../getmethat.ca/ecowaste/public/images/team.png);
+        height: auto;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 0%;
+        padding-top: 145px;
+        position: relative;
+    }
+
+    .team-member {
+        display: block;
+        flex-direction: row;
+        justify-content: center;
+        gap: 70px;
+        position: relative;
+        bottom: 51px;
+    }
+
+    .team {
+        display: block !important;
+             width: 98% !important;
+        /* float: none !important; */
+        display: block !important;
+        margin: 0 !important;
+    }
+    .container.team-section {
+    margin: 0 !important;
+}
+
+    .faqleft {
+        top: 26px;
+    }
+
+    img.fotter-logo {
+        width: 180px;
+        height: auto;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        padding-bottom: 10px;
+    }
+    
+        .headerContainer {
+            padding-left: 8px !important;
+            padding-right: 20px !important;
+        
+    }
+.text-center.buyer-right,
+.seller-right {
+  margin: 0px 0px 45px !important;
+  background: #e0ebe7 !important;
+  padding: 22px !important;
+}
+
+.dropdown {
+    /* position: relative; */
+    /* display: inline-block; */
+    max-width: 160px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    margin-left:0 !important;
+    background: #6E7E1D;
+    color: #FFFFFF;
+    border-radius: 10px;
+    z-index: 12;
+    height: 40px;
+}
+
+.slideshow-container > img.mySlides {
+        display: block !important;
+        width: calc(100% / 3);
+        float: left;
+        padding: 10px;
+    }
+
+    .slideshow-container > div {
+        display: none !important;
+    }
+   .slideshow-container img {
+      width: 100% !important;
+        float: none !important;
+        display: block !important;
+        padding-left: 0 !important;
+        padding: 10px 0 !important;
+  }
+
+  img.cat-images {
+    width: 100%;
+}
+}

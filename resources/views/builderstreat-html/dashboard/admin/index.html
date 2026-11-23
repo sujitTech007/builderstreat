@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Builderstreat</title>
+ <link rel="stylesheet" href="../assets/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="./index.html">
+        <div><img src="../assets/images/logo.png" alt="logo"></div>
+      </a>
+        <div class="sidebar_nav">
+            <div class="role-chip"><i></i> Admin control</div>
+            <div class="nav-label">Workspace</div>
+            <nav class="nav">
+
+            <a class="active" href="./index.html">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <button class="nav-toggle" type="button" data-submenu="users-sub">
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+                
+            </button>
+
+            <div class="subnav" id="users-sub">
+                <a class="" href="./users/index.html">
+                    <span>All Users</span>
+                </a>
+                <a class="" href="./users/buyers.html">
+                    <span>Buyers</span>
+                </a>
+                <a class="" href="./users/sellers.html">
+                    <span>Sellers</span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" type="button" data-submenu="mat-sub">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Materials</span>
+            </button>
+
+            <div class="subnav" id="mat-sub">
+                <a class="" href="./materials/index.html">
+                    <span>All Materials</span>
+                </a>
+                <a class="" href="./categories/index.html">
+                    <span>Categories</span>
+                </a>
+                <a class="" href="./materials/pending.html">
+                    <span>Pending Approval</span>
+                </a>
+            </div>
+
+            <a class="" href="./enquiries/index.html">
+                <i class="fa-regular fa-comments"></i>
+                <span>Enquiries</span>
+            </a>
+
+            <!-- <a class="" href="./offers/index.html">
+                <i class="fa-solid fa-tags"></i>
+                <span>Offers</span>
+            </a> -->
+
+            <a class="" href="./orders/index.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Orders</span>
+            </a>
+
+            <a class="" href="./payments/index.html">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <!-- <a class="" href="./locations/index.html">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Locations</span>
+            </a> -->
+
+            <!-- <button class="nav-toggle" type="button" data-submenu="rep-sub">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Reports</span>
+            </button>
+
+            <div class="subnav" id="rep-sub">
+                <a class="" href="./reports/sales.html">
+                    <span>Sales Reports</span>
+                </a>
+                <a class="" href="./reports/users.html">
+                    <span>User Reports</span>
+                </a>
+                <a class="" href="./reports/materials.html">
+                    <span>Material Reports</span>
+                </a>
+            </div> -->
+
+            <!-- <a class="" href="./reviews/index.html">
+                <i class="fa-regular fa-star"></i>
+                <span>Reviews</span>
+            </a> -->
+
+            <a class="" href="./notifications/index.html">
+                <i class="fa-regular fa-bell"></i>
+                <span>Notifications</span>
+            </a>
+
+            <a class="" href="./settings/index.html">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+    
+    </div></aside>
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn d-block" data-menu type="button" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+        
+        <div class="top-actions">
+                    
+
+                    <!-- Notifications -->
+                    <div class="dropdown">
+
+                      <a class="icon-btn text-decoration-none" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                        <span class="badge-dot"></span>
+                      </a>
+
+                      <div class="dropdown-menu dropdown-menu-end shadow border-0 p-0" style="width: 350px;">
+
+                        <!-- Header -->
+                        <div class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom">
+                          <h6 class="mb-0 fw-semibold">Notifications</h6>
+
+                          <span class="badge bg-primary rounded-pill">
+                            3 New
+                          </span>
+                        </div>
+
+                        <!-- Notification 1 -->
+                        <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                          <div class="d-flex gap-3">
+
+                            <div class="text-primary">
+                              <i class="fa-solid fa-bell"></i>
+                            </div>
+
+                            <div>
+                              <div class="fw-semibold">
+                                New notification
+                              </div>
+
+                              <small class="text-muted">
+                                You have received a new notification.
+                              </small>
+
+                              <div class="small text-muted mt-1">
+                                5 minutes ago
+                              </div>
+                            </div>
+
+                          </div>
+                        </a>
+
+                        <!-- Notification 2 -->
+                        <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                          <div class="d-flex gap-3">
+
+                            <div class="text-success">
+                              <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <div>
+                              <div class="fw-semibold">
+                                Profile updated
+                              </div>
+
+                              <small class="text-muted">
+                                Your profile has been successfully updated.
+                              </small>
+
+                              <div class="small text-muted mt-1">
+                                1 hour ago
+                              </div>
+                            </div>
+
+                          </div>
+                        </a>
+
+                        <!-- Notification 3 -->
+                        <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                          <div class="d-flex gap-3">
+
+                            <div class="text-warning">
+                              <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+
+                            <div>
+                              <div class="fw-semibold">
+                                Action required
+                              </div>
+
+                              <small class="text-muted">
+                                Please review your account information.
+                              </small>
+
+                              <div class="small text-muted mt-1">
+                                Yesterday
+                              </div>
+                            </div>
+
+                          </div>
+                        </a>
+
+                        <!-- View All -->
+                        <div class="p-2 text-center">
+                          <a href="./notifications/index.html" class="btn btn-primary p-2 w-100 text-center d-block">
+                            View All Notifications
+                          </a>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                    <!-- User Profile -->
+                    <div class="dropdown">
+
+                      <a href="#" class="user-pill text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="avatar">
+                            <img src="../assets/images/avatar.png" alt="avatar">
+                            </span>
+                            <div>
+                            <strong>Admin</strong>                          
+                            </div>
+                            <i class="fa-solid fa-chevron-down ms-2 small"></i>
+                      </a>
+
+
+                      <div class="dropdown-menu dropdown-menu-end shadow border-0 p-2">
+                           
+
+
+                            <!-- Settings -->
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="./settings/index.html">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                            </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- Logout -->
+                        <a class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger" href="./logout.html">
+
+                          <i class="fa-solid fa-right-from-bracket"></i>
+
+                          <span>Logout</span>
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+      </header>
+  <main class="content">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 page-head">
+        <div>
+            <h1 class="mb-1">Dashboard</h1>
+            <p class="text-muted mb-0">
+                Users, material approvals, orders and marketplace activity.
+            </p>
+        </div>
+
+        <div>
+            <a href="materials/pending.html" class="btn btn-primary">
+                <i class="fa-solid fa-clock-rotate-left me-1"></i>
+                Review Pending Lots
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Dashboard Cards -->
+    <div class="row g-4 mb-4">
+
+        <!-- Total Users -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Users</p>
+                            <h3 class="mb-1">1,240</h3>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                12.5% this month
+                            </small>
+                        </div>
+
+                        <div class="fs-1 text-primary">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Buyers -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Buyers</p>
+                            <h3 class="mb-1">486</h3>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                8.2% this month
+                            </small>
+                        </div>
+
+                        <div class="fs-1 text-success">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Sellers -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Sellers</p>
+                            <h3 class="mb-1">754</h3>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                10.4% this month
+                            </small>
+                        </div>
+
+                        <div class="fs-1 text-warning">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Orders -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Orders</p>
+                            <h3 class="mb-1">328</h3>
+                            <small class="text-success">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                6.8% this month
+                            </small>
+                        </div>
+
+                        <div class="fs-1 text-info">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Charts -->
+    <div class="row g-4 mb-4">
+
+        <!-- Sales Overview -->
+        <div class="col-xl-9">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1">Sales Overview</h5>
+                            <p class="text-muted small mb-0">
+                                Monthly marketplace sales
+                            </p>
+                        </div>
+
+                        <select class="form-select form-select-sm w-auto">
+                            <option>2026</option>
+                            <option>2025</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card-body" style="height: 300px;">
+                    <canvas id="salesOverviewChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- User Overview -->
+        <div class="col-xl-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h5 class="mb-1">User Overview</h5>
+                    <p class="text-muted small mb-0">
+                        Buyers vs Sellers
+                    </p>
+                </div>
+
+                <div class="card-body p-0" style="height: 250px;">
+                    <canvas id="userOverviewChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Pending Material Approvals -->
+    <div class="card border-0 shadow-sm mb-4">
+
+        <div class="card-header bg-white border-0 pt-4 px-0">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h5 class="mb-1">
+                        <i class="fa-solid fa-hourglass-half text-warning me-2"></i>
+                        Pending Material Approvals
+                    </h5>
+
+                    <p class="text-muted small mb-0">
+                        Materials waiting for admin approval
+                    </p>
+                </div>
+
+                <a href="materials/pending.html"
+                   class="btn btn-sm btn-outline-primary">
+                    View All
+                </a>
+
+            </div>
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Material</th>
+                            <th>Seller</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>01</td>
+                            <td class="fw-semibold">Steel Rods</td>
+                            <td>ABC Construction</td>
+                            <td>Metal</td>
+                            <td>800 Kg</td>
+                            <td>28 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <a href="materials/view.html"
+                                   class="btn btn-sm btn-info text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>02</td>
+                            <td class="fw-semibold">Ceramic Tiles</td>
+                            <td>XYZ Builders</td>
+                            <td>Flooring</td>
+                            <td>500 Sq.Ft</td>
+                            <td>28 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <a href="materials/view.html"
+                                   class="btn btn-sm btn-info text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>03</td>
+                            <td class="fw-semibold">Wooden Doors</td>
+                            <td>BuildPro Ltd.</td>
+                            <td>Wood</td>
+                            <td>12 Units</td>
+                            <td>27 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <a href="materials/view.html"
+                                   class="btn btn-sm btn-info text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>04</td>
+                            <td class="fw-semibold">Bricks</td>
+                            <td>Northyard Homes</td>
+                            <td>Bricks</td>
+                            <td>2,000 Units</td>
+                            <td>27 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <a href="materials/view.html"
+                                   class="btn btn-sm btn-info text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Recent Orders -->
+    <div class="card border-0 shadow-sm mb-4">
+
+        <div class="card-header bg-white border-0 pt-4 px-0">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h5 class="mb-1">
+                        <i class="fa-solid fa-box me-2 text-primary"></i>
+                        Recent Orders
+                    </h5>
+
+                    <p class="text-muted small mb-0">
+                        Latest marketplace transactions
+                    </p>
+                </div>
+
+                <a href="orders/index.html"
+                   class="btn btn-sm btn-outline-primary">
+                    View All
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Buyer</th>
+                            <th>Seller</th>
+                            <th>Material</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="fw-semibold">#BT-10245</td>
+                            <td>Rahul Traders</td>
+                            <td>ABC Construction</td>
+                            <td>Steel Rods</td>
+                            <td>₹46,400</td>
+                            <td>30 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Completed
+                                </span>
+                            </td>
+                            <td>
+                                <div class="table-actions d-flex gap-2">                              
+                                    <a href="orders/view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                </div>
+                                
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="fw-semibold">#BT-10244</td>
+                            <td>BuildMart</td>
+                            <td>XYZ Builders</td>
+                            <td>Ceramic Tiles</td>
+                            <td>₹17,500</td>
+                            <td>29 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-info">
+                                    Processing
+                                </span>
+                            </td>
+                            <td>
+                                <div class="table-actions d-flex gap-2">                              
+                                    <a href="orders/view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="fw-semibold">#BT-10243</td>
+                            <td>Urban Developers</td>
+                            <td>BuildPro Ltd.</td>
+                            <td>Wooden Doors</td>
+                            <td>₹30,000</td>
+                            <td>29 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <div class="table-actions d-flex gap-2">                              
+                                    <a href="orders/view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="fw-semibold">#BT-10242</td>
+                            <td>Metro Interiors</td>
+                            <td>Northyard Homes</td>
+                            <td>Bricks</td>
+                            <td>₹22,000</td>
+                            <td>28 Sep 2026</td>
+                            <td>
+                                <span class="badge bg-primary">
+                                    Shipped
+                                </span>
+                            </td>
+                            <td>
+                                <div class="table-actions d-flex gap-2">                              
+                                    <a href="orders/view.html" class="btn bg-primary-subtle text-primary border border-primary-subtle" title="View">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    // Sales Overview Chart
+    const salesCtx = document.getElementById('salesOverviewChart');
+
+    new Chart(salesCtx, {
+        type: 'line',
+
+        data: {
+            labels: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep'
+            ],
+
+            datasets: [{
+                label: 'Sales',
+                data: [
+                    42000,
+                    52000,
+                    48000,
+                    65000,
+                    72000,
+                    68000,
+                    84000,
+                    92000,
+                    105000
+                ],
+
+                borderWidth: 2,
+                tension: 0.4,
+                fill: true
+            }]
+        },
+
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+
+                    ticks: {
+                        callback: function(value) {
+                            return '₹' + value.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
+    // User Overview Chart
+    const userCtx = document.getElementById('userOverviewChart');
+
+    new Chart(userCtx, {
+        type: 'doughnut',
+
+        data: {
+            labels: [
+                'Buyers',
+                'Sellers'
+            ],
+
+            datasets: [{
+                data: [
+                    486,
+                    754
+                ],
+
+                borderWidth: 0
+            }]
+        },
+
+        options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+</script>
+    </div>
+  </div>
+  
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

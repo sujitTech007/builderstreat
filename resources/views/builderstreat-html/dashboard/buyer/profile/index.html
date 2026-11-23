@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Dashboard | Builderstreat</title>
+  <link rel="stylesheet" href="../../assets/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+  <header class="bg-white position-fixed top-0 w-100 z-1">
+
+    <div class="container">
+      <div class="row">
+        <div class="d-flex justify-content-between w-100">
+          <div class="brand_logo">
+            <a class="brand bg-transparent" href="./index.html"><img src="../../assets/images/logo.png" alt="logo"></a>
+          </div>
+          <div class="top-actions">
+
+
+            <!-- Notifications -->
+            <div class="dropdown">
+
+              <a class="icon-btn text-decoration-none" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="badge-dot"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end shadow border-0 p-0" style="width: 350px;">
+
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom">
+                  <h6 class="mb-0 fw-semibold">Notifications</h6>
+
+                  <span class="badge bg-primary rounded-pill">
+                    3 New
+                  </span>
+                </div>
+
+                <!-- Notification 1 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-primary">
+                      <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        New notification
+                      </div>
+
+                      <small class="text-muted">
+                        You have received a new notification.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        5 minutes ago
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- Notification 2 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-success">
+                      <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        Profile updated
+                      </div>
+
+                      <small class="text-muted">
+                        Your profile has been successfully updated.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        1 hour ago
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- Notification 3 -->
+                <a href="#" class="dropdown-item px-3 py-3 border-bottom text-wrap">
+
+                  <div class="d-flex gap-3">
+
+                    <div class="text-warning">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div>
+                      <div class="fw-semibold">
+                        Action required
+                      </div>
+
+                      <small class="text-muted">
+                        Please review your account information.
+                      </small>
+
+                      <div class="small text-muted mt-1">
+                        Yesterday
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+
+                <!-- View All -->
+                <div class="p-2 text-center">
+                  <a href="./notifications/index.html" class="btn btn-primary p-2 w-100 text-center d-block">
+                    View All Notifications
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- User Profile -->
+            <div class="dropdown">
+
+              <a href="#" class="user-pill text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <span class="avatar">
+                  <img src="../../assets/images/avatar.png" alt="avatar">
+                </span>
+
+                <div>
+                  <strong>Priya Nair</strong>
+                  <small class="d-block small">
+                    Northyard Homes
+                  </small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down ms-2 small"></i>
+
+              </a>
+
+
+              <div class="dropdown-menu dropdown-menu-end shadow border-0 p-2">
+
+                <!-- Profile -->
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="../profile/index.html">
+
+                  <i class="fa-regular fa-user"></i>
+
+                  <span>Profile</span>
+                </a>
+
+
+                <!-- Settings -->
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="../settings/index.html">
+
+                  <i class="fa-solid fa-gear"></i>
+
+                  <span>Settings</span>
+                </a>
+
+
+                <div class="dropdown-divider"></div>
+
+
+                <!-- Logout -->
+                <a class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger" href="./logout.html">
+
+                  <i class="fa-solid fa-right-from-bracket"></i>
+
+                  <span>Logout</span>
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </header>
+  <div class="container">
+    <div class="user_app app">
+      <aside class="sidebar user_sidebar">
+
+        <div class="sidebar_nav">
+          <div class="role-chip"><i></i> Buyer workspace</div>
+          <div class="nav-label">Workspace</div>
+          <nav class="nav">
+            <nav class="nav flex-column">
+
+              <a class="nav-link active" href="../index.html">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+              </a>
+
+
+              <a class="nav-link" href="../enquiries/index.html">
+                <i class="fa-regular fa-comments"></i>
+                <span>My Enquiries</span>
+              </a>
+
+              <a class="nav-link" href="../saved/index.html">
+                <i class="fa-regular fa-heart"></i>
+                <span>Saved Materials</span>
+              </a>
+
+              <a class="nav-link" href="../offers/index.html">
+                <i class="fa-solid fa-tag"></i>
+                <span>Quotations</span>
+              </a>
+
+              <a class="nav-link" href="../orders/index.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>My Orders</span>
+              </a>
+
+              
+
+              <a class="nav-link" href="../messages/index.html">
+                <i class="fa-regular fa-message"></i>
+                <span>Messages</span>
+              </a>
+
+              <a class="nav-link" href="../notifications/index.html">
+                <i class="fa-regular fa-bell"></i>
+                <span>Notifications</span>
+              </a>
+
+              <a class="nav-link" href="../reviews/index.html">
+                <i class="fa-regular fa-star"></i>
+                <span>My Reviews</span>
+              </a>
+
+              <a class="nav-link" href="../profile/index.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile & Settings</span>
+              </a>
+
+              <a class="nav-link" href="../logout.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+              </a>
+
+
+
+            </nav>
+
+
+        </div>
+      </aside>
+      <main class="content">
+
+        <div class="page-head">
+          <div>
+            <h1>Profile</h1>
+            <p>Company details used on enquiries and escrow.</p>
+          </div>
+          
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+                <div class="card user_card border-0 shadow-none">
+                        <div class="card-body text-center p-0">
+
+                            <!-- User Image -->
+                            <div class="mb-3 text-center">
+
+                                <img src="../../assets/images/avatar.png" alt="Profile" class="rounded-circle img-fluid border m-auto" style="width: 130px; height: 130px; object-fit: cover;">
+
+                            </div>
+
+
+                            <!-- User Name -->
+                            <h5 class="mb-1">
+                                Priya Nair
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                Northyard Homes
+                            </p>
+
+
+                            <!-- User Information -->
+                            <div class="text-start border-top pt-3">
+
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">
+                                        Email
+                                    </small>
+                                    <strong>
+                                        priya@northyard.example
+                                    </strong>
+                                </div>
+
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">
+                                        City
+                                    </small>
+                                    <strong>
+                                        Brampton, ON
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <small class="text-muted d-block">
+                                        Projects
+                                    </small>
+                                    <strong>
+                                        Low-rise residential
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Edit Buttons -->
+                            
+
+                        </div>
+                    </div>
+          </div>
+          <div class="col-md-8">
+            <div class="container-fluid py-4">
+
+    <!-- Profile Header -->
+    
+
+
+    <!-- Profile Tabs -->
+    <ul class="nav nav-tabs nav_tabs mb-4" id="profileTabs" role="tablist">
+
+        <li class="nav-item" role="presentation">
+            <button
+                class="nav-link active"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab">
+                Update Profile
+            </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button
+                class="nav-link"
+                id="billing-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#billing"
+                type="button"
+                role="tab">
+                Billing Info
+            </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+            <button
+                class="nav-link"
+                id="setting-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#setting"
+                type="button"
+                role="tab">
+                Setting
+            </button>
+        </li>
+
+    </ul>
+
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="profileTabsContent">
+
+
+        <!-- =========================
+             MY PROFILE
+        ========================== -->
+        <div
+            class="tab-pane fade show active"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab">
+
+            <div class="row g-4">
+
+
+
+                    <div class="card border-0 shadow-none pt-0">
+
+                        <div class="card-body p-0">
+
+                            <h4 class="mb-3">
+                                Personal Information
+                            </h4>
+
+                            <div class="row g-3">
+                               <form class="card form-grid" action="#">
+
+                                <!-- First Name -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        First Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Priya">
+                                </div>
+
+
+                                <!-- Last Name -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        Last Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Nair">
+                                </div>
+
+
+                                <!-- Company -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        Company
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Northyard Homes">
+                                </div>
+
+
+                                <!-- Email -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        value="priya@northyard.example">
+                                </div>
+
+
+                                <!-- Phone -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        Phone
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="+1 000 000 0000">
+                                </div>
+
+
+                                <!-- City -->
+                                <div class="col">
+                                    <label class="form-label">
+                                        City
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Brampton, ON">
+                                </div>
+
+
+                                <!-- About -->
+                                <div class="col-12">
+                                    <label class="form-label">
+                                        About
+                                    </label>
+
+                                    <textarea
+                                        class="form-control"
+                                        rows="5"
+                                        placeholder="Tell us about yourself..."></textarea>
+                                </div>
+
+
+                                <!-- Projects -->
+                                <div class="col-12">
+                                    <label class="form-label">
+                                        Projects
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Low-rise residential">
+                                </div>
+                                
+
+                            </div>
+
+
+                            <!-- Save Button -->
+                            <div class="mt-4">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary px-4">
+                                    Save Changes
+                                </button>
+
+                            </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+               
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             BILLING INFO
+        ========================== -->
+        <div
+            class="tab-pane fade"
+            id="billing"
+            role="tabpanel"
+            aria-labelledby="billing-tab">
+
+            <div class="card border-0 p-0 shadow-none">
+                <div class="card-body p-0">
+
+                    <h4 class="mb-4">
+                        Billing Information
+                    </h4>
+
+                    <div class="row g-3">
+                      <form class="card form-grid" action="#">
+
+                        <div class="col">
+                            <label class="form-label">
+                                Company Name
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="Northyard Homes">
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label">
+                                Billing Email
+                            </label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                value="priya@northyard.example">
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label">
+                                Address
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter billing address">
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label">
+                                City
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="Brampton">
+                        </div>
+
+                        <div class="col">
+                            <label class="form-label">
+                                Postal Code
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control">
+                        </div>
+                        </form>
+
+                    </div>
+
+                    <button class="btn btn-primary mt-4">
+                        Update Billing Information
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PAYMENT HISTORY
+        ========================== -->
+        <div
+            class="tab-pane fade"
+            id="setting"
+            role="tabpanel"
+            aria-labelledby="setting-tab">
+
+            <div class="card border-0 p-0 shadow-none p-0">
+
+                <div class="card-body p-0">
+
+                    <div class="page-head">
+          <div>
+            <h4>Update settings</h4>
+            <p>Control how the yard notifies you.</p>
+          </div>
+          <div class="actions"></div>
+        </div>
+
+                   <form class="card form-grid" data-demo-form data-redirect="index.html" data-success="Settings saved.">
+          <div class=""><label>Email alerts</label><select>
+              <option>On</option>
+              <option>Off</option>
+            </select></div>
+          <div class=""><label>SMS</label><select>
+              <option>Off</option>
+              <option>On</option>
+            </select></div>
+          <div class=""><label>Default pickup radius (km)</label><input type="text" value="40" placeholder=""></div>
+          <div class="full actions">
+            <button class="btn btn-primary" type="submit">Save record</button>
+            <a class="btn btn-ghost" href="index.html">Cancel</a>
+          </div>
+        </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+          </div>
+        </div>
+        <!-- <div class="view-grid">
+          <div class="card">
+            <div class="kv"><b>Company</b><span>Northyard Homes</span></div>
+            <div class="kv"><b>Contact</b><span>Priya Nair</span></div>
+            <div class="kv"><b>Email</b><span>priya@northyard.example</span></div>
+            <div class="kv"><b>City</b><span>Brampton, ON</span></div>
+            <div class="kv"><b>Projects</b><span>Low-rise residential</span></div>
+          </div>
+        </div> -->
+      </main>
+    </div>
+  </div>
+  <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/dashboard.js"></script>
+</body>
+
+</html>
