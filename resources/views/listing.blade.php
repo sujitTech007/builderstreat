@@ -41,7 +41,7 @@
             <article class="bt-card">
                 <div class="bt-media">
                     <a href="{{ route('products.details', $product->id) }}">
-                        <img src="{{ $product->image ? asset($product->image) : asset('assets/builderstreat-html/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
+                        <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
                     </a>
                     <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
                         <i class="fa-solid fa-heart"></i>

@@ -25,7 +25,7 @@
             @foreach($categories as $category)
                 <article class="story-card position-relative border-0">
                     <div class="story-photo">
-                        <img src="{{ asset('assets/builderstreat-html/assets/images/' . $category['image']) }}" alt="{{ $category['name'] }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
+                        <img src="{{ asset('public/assets/images/' . $category['image']) }}" alt="{{ $category['name'] }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
                     </div>
                     <div class="story-body position-absolute bottom-0 start-0 w-100 p-3">
                         <h3 class="text-white fs-5">{{ $category['name'] }}</h3>

@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="hero position-relative">
-    <img src="{{ asset('assets/builderstreat-html/assets/images/hero.png') }}" alt="" class="hero-img position-absolute w-100 h-100" style="top:0; left:0; z-index:-1;">
+    <img src="{{ asset('public/assets/images/hero.png') }}" alt="" class="hero-img position-absolute w-100 h-100" style="top:0; left:0; z-index:-1;">
     <div class="container">
         <div class="row">
             <div class="hero-grid">
@@ -33,7 +33,7 @@
 
 <section class="section wrap">
     <div class="about-grid">
-        <img src="{{ asset('assets/builderstreat-html/assets/images/thumb-1.jpeg') }}" alt="Reusable surplus construction materials">
+        <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Reusable surplus construction materials">
         <div>
             <div class="eyebrow">ABOUT BUILDERSTREAT</div>
             <h2>Driving the Future of Circular Construction</h2>
@@ -77,7 +77,7 @@
             <div class="eyebrow">OUR CATEGORIES</div>
             <h2>Most popular categories</h2>
         </div>
-        <div class="stories-grid">
+        <div class="stories-grid swiper storiesSwiper">
             @php
                 $homeCategories = [
                     ['Cement & Concrete', 'cement-bag.png', 'High-quality cement and concrete for strong, durable construction.'],
@@ -93,7 +93,7 @@
             @foreach($homeCategories as [$name, $image, $description])
                 <article class="story-card position-relative border-0">
                     <div class="story-photo">
-                        <img src="{{ asset('assets/builderstreat-html/assets/images/' . $image) }}" alt="{{ $name }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
+                        <img src="{{ asset('public/assets/images/' . $image) }}" alt="{{ $name }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
                     </div>
                     <div class="story-body position-absolute bottom-0 start-0 w-100 p-3">
                         <h3>{{ $name }}</h3>
@@ -114,7 +114,7 @@
     </div>
     <div class="bt-grid">
         <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('assets/builderstreat-html/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles" loading="lazy"></div>
+            <div class="bt-media"><img src="{{ asset('public/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles" loading="lazy"></div>
             <div class="bt-body">
                 <div class="bt-info"><p class="bt-cat">Tiles &amp; Flooring</p><h3 class="bt-title">Porcelain Floor Tiles</h3><p class="bt-model">Glazed 12x24 in</p></div>
                 <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$2.25</span> <span class="bt-unit">/ sq ft</span></p><span class="bt-save">Save ~47%</span></div><p class="bt-market">Market price: <span>$2.50 – $6.00</span></p></div>
@@ -122,7 +122,7 @@
             </div>
         </article>
         <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('assets/builderstreat-html/assets/images/wood.png') }}" alt="Framing Lumber" loading="lazy"></div>
+            <div class="bt-media"><img src="{{ asset('public/assets/images/wood.png') }}" alt="Framing Lumber" loading="lazy"></div>
             <div class="bt-body">
                 <div class="bt-info"><p class="bt-cat">Lumber &amp; Wood</p><h3 class="bt-title">Framing Lumber</h3><p class="bt-model">2x4x8 SPF stud</p></div>
                 <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$2.75</span> <span class="bt-unit">/ piece</span></p><span class="bt-save">Save ~45%</span></div><p class="bt-market">Market price: <span>$3.38 – $6.58</span></p></div>
@@ -130,7 +130,7 @@
             </div>
         </article>
         <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('assets/builderstreat-html/assets/images/door.png') }}" alt="Interior Doors" loading="lazy"></div>
+            <div class="bt-media"><img src="{{ asset('public/assets/images/door.png') }}" alt="Interior Doors" loading="lazy"></div>
             <div class="bt-body">
                 <div class="bt-info"><p class="bt-cat">Doors &amp; Windows</p><h3 class="bt-title">Interior Doors</h3><p class="bt-model">Pre-hung solid core</p></div>
                 <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$195.00</span> <span class="bt-unit">/ door</span></p><span class="bt-save">Save ~51%</span></div><p class="bt-market">Market price: <span>$280 – $520</span></p></div>
@@ -142,7 +142,7 @@
 </section>
 
 <section class="section position-relative">
-    <img src="{{ asset('assets/builderstreat-html/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
+    <img src="{{ asset('public/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
     <div class="wrap">
         <div class="about-grid">
             <div>

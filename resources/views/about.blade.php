@@ -5,7 +5,7 @@
 @section('content')
 <section class="section wrap">
     <div class="about-grid">
-        <img src="{{ asset('assets/builderstreat-html/assets/images/thumb-1.jpeg') }}" alt="Construction materials ready for reuse">
+        <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Construction materials ready for reuse">
         <div>
             <div class="eyebrow">ABOUT BUILDERSTREAT</div>
             <h2>Driving the Future of Circular Construction</h2>
@@ -23,7 +23,7 @@
             <p>Our mission is to revolutionize construction and demolition waste recycling by delivering seamless, sustainable solutions for material exchange. We are committed to building a circular economy where overabundant materials are repurposed, waste is minimized, and environmental impact is reduced.</p>
             <p>By leveraging our platform, we empower businesses and individuals to collaborate and contribute to a greener future.</p>
         </div>
-        <img src="{{ asset('assets/builderstreat-html/assets/images/thumb-2.jpeg') }}" alt="Reclaimed construction materials">
+        <img src="{{ asset('public/assets/images/thumb-2.jpeg') }}" alt="Reclaimed construction materials">
     </div>
 </section>
 
@@ -37,7 +37,7 @@
 </div>
 
 <section class="section position-relative">
-    <img src="{{ asset('assets/builderstreat-html/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
+    <img src="{{ asset('public/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
     <div class="wrap">
         <div class="about-grid">
             <div>
@@ -60,15 +60,15 @@
     </div>
     <div class="stories-grid">
         <article class="story-card">
-            <div class="story-photo"><img src="{{ asset('assets/builderstreat-html/assets/images/javaid.jpg') }}" alt="Mr. Javaid Latif"></div>
+            <div class="story-photo"><img src="{{ asset('public/assets/images/javaid.jpg') }}" alt="Mr. Javaid Latif"></div>
             <div class="story-body"><h3>Mr. Javaid Latif</h3><div class="story-meta">Co-Founder &amp; CEO</div></div>
         </article>
         <article class="story-card">
-            <div class="story-photo"><img src="{{ asset('assets/builderstreat-html/assets/images/usman.jpg') }}" alt="Mr. Usman Rasheed Lone"></div>
+            <div class="story-photo"><img src="{{ asset('public/assets/images/usman.jpg') }}" alt="Mr. Usman Rasheed Lone"></div>
             <div class="story-body"><h3>Mr. Usman Rasheed Lone</h3><div class="story-meta">Co-Founder &amp; COO</div></div>
         </article>
         <article class="story-card">
-            <div class="story-photo"><img src="{{ asset('assets/builderstreat-html/assets/images/kasif.jpg') }}" alt="Mr. Kashif Faisal"></div>
+            <div class="story-photo"><img src="{{ asset('public/assets/images/kasif.jpg') }}" alt="Mr. Kashif Faisal"></div>
             <div class="story-body"><h3>Mr. Kashif Faisal</h3><div class="story-meta">Co-Founder &amp; CFO</div></div>
         </article>
     </div>
