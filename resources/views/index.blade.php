@@ -107,58 +107,69 @@
 </section>
 
 <section class="section wrap product-listings">
-    <div class="section-head">
-        <div class="eyebrow">LATEST LISTINGS</div>
+    <div class="d-flex justify-content-between w-100">
+        <div class="section-head">        
+            <div class="eyebrow">LATEST LISTINGS</div>
         <h2>Explore Surplus Construction Materials</h2>
         <p>Browse quality surplus materials from sellers at competitive prices.</p>
+        </div>
+            <div class="text-center mt-4"><a href="{{ route('listing') }}" class="btn btn-primary">View all materials</a></div>
     </div>
-    <div class="bt-grid">
-        @forelse($products as $product)
+
+   <div class="swiper btSwiper">
+        <div class="swiper-wrapper">
+             @forelse($products as $product)
             @php
                 $discountAmount = ($product->offer * $product->discount) / 100;
                 $finalPrice = $product->offer - $discountAmount;
             @endphp
-            <article class="bt-card">
-                <div class="bt-media">
-                    <a href="{{ route('products.details', $product->id) }}">
-                        <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
-                    </a>
-                    <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </div>
-                <div class="bt-body">
-                    <div class="bt-info">
-                        <p class="bt-cat">{{ optional($product->category)->name ?? 'Surplus Material' }}</p>
-                        <h3 class="bt-title">{{ $product->product_name }}</h3>
-                        <p class="bt-model">{{ $product->brand_name ?: ($product->model_number ?: 'Construction material') }}</p>
+            <div class="swiper-slide">       
+                <article class="bt-card">
+                    <div class="bt-media">
+                        <a href="{{ route('products.details', $product->id) }}">
+                            <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
+                        </a>
+                        <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
                     </div>
-                    <div class="bt-pricing">
-                        <div class="bt-price-row">
-                            <p class="bt-price"><span class="bt-now">${{ number_format($finalPrice, 2) }}</span></p>
-                            @if($product->discount)
-                                <span class="bt-save">Save {{ rtrim(rtrim(number_format($product->discount, 2), '0'), '.') }}%</span>
+                    <div class="bt-body">
+                        <div class="bt-info">
+                            <p class="bt-cat">{{ optional($product->category)->name ?? 'Surplus Material' }}</p>
+                            <h3 class="bt-title">{{ $product->product_name }}</h3>
+                            <p class="bt-model">{{ $product->brand_name ?: ($product->model_number ?: 'Construction material') }}</p>
+                        </div>
+                        <div class="bt-pricing">
+                            <div class="bt-price-row">
+                                <p class="bt-price"><span class="bt-now">${{ number_format($finalPrice, 2) }}</span></p>
+                                @if($product->discount)
+                                    <span class="bt-save">Save {{ rtrim(rtrim(number_format($product->discount, 2), '0'), '.') }}%</span>
+                                @endif
+                            </div>
+                            <p class="bt-market">{{ Str::limit($product->description, 110) }}</p>
+                        </div>
+                        <div class="bt-actions">
+                            <a href="{{ route('products.details', $product->id) }}" class="btn btn-sm bt-view">View</a>
+                            @if(Auth::check())
+                                <a href="{{ route('products.details', $product->id) }}" class="btn btn-amber btn-sm">Enquire</a>
+                            @else
+                                <a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Login to Enquire</a>
                             @endif
                         </div>
-                        <p class="bt-market">{{ Str::limit($product->description, 110) }}</p>
                     </div>
-                    <div class="bt-actions">
-                        <a href="{{ route('products.details', $product->id) }}" class="btn btn-sm bt-view">View</a>
-                        @if(Auth::check())
-                            <a href="{{ route('products.details', $product->id) }}" class="btn btn-amber btn-sm">Enquire</a>
-                        @else
-                            <a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Login to Enquire</a>
-                        @endif
-                    </div>
-                </div>
-            </article>
+                </article>
+            </div>
         @empty
+            
             <p class="text-muted">No products found.</p>
         @endforelse
         
         
+        
     </div>
-    <div class="text-center mt-4"><a href="{{ route('listing') }}" class="btn btn-primary">View all materials</a></div>
+        <div class="bt-swiper-pagination d-flex justify-content-center mt-5"></div>
+    </div>
+
 </section>
 
 <section class="section position-relative">
@@ -176,6 +187,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="section wrap" id="how">
     <div class="section-head">
@@ -205,26 +217,557 @@
     </div>
 </section>
 
-<section class="section wrap pt-0" id="faq">
+
+
+  <section class="section wrap section-stories py-3 pt-5">
+
     <div class="section-head">
-        <div class="eyebrow">FAQ</div>
-        <h2>Frequently Asked Questions</h2>
+
+      <div class="eyebrow">Project Stories</div>
+
+      <h2>See How Builders Create More Value</h2>
+
     </div>
+
+    <div class="stories-grid">
+
+
+
+      <div class="story-card">
+
+        <div class="story-photo">
+
+          <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
+
+            class="img-fluid w-100 h-100 object-fit-cover">
+
+        </div>
+
+        <div class="story-body">
+
+          <h3 style="font-size:1rem;">Building Smarter with Reclaimed Materials</h3>
+
+          <p>A residential builder sourced reclaimed bricks and structural steel through Builderstreat, reducing project
+
+            costs while keeping quality construction materials in circulation.</p>
+
+          <div class="story-meta">Small Residential Builder — Toronto, ON</div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="story-card">
+
+        <div class="story-photo">
+
+          <img src="{{ asset('public/assets/images/thumb-2.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
+
+            class="img-fluid w-100 h-100 object-fit-cover">
+
+        </div>
+
+        <div class="story-body">
+
+          <h3 style="font-size:1rem;">Turning Surplus into New Opportunities</h3>
+
+          <p>A demolition contractor listed reusable steel and concrete materials, preventing landfill waste and
+
+            connecting them with builders who needed affordable supplies.</p>
+
+          <div class="story-meta">Demolition Contractor — Mississauga, ON</div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="story-card">
+
+        <div class="story-photo">
+
+          <img src="{{ asset('public/assets/images/thumb-3.png') }}" alt="Building Smarter with Reclaimed Materials"
+
+            class="img-fluid w-100 h-100 object-fit-cover">
+
+        </div>
+
+        <div class="story-body">
+
+          <h3 style="font-size:1rem;">Keeping Projects on Schedule</h3>
+
+          <p>When new materials faced delivery delays, a contractor sourced quality surplus inventory locally through
+
+            Builderstreat, completing the project on time and within budget.</p>
+
+          <div class="story-meta">General Contractor — Brampton, ON</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="testimonial-section py-5">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="section-head text-center m-auto mx-none">
+
+          <div class="w-100 mb-2">
+
+            <div class="eyebrow text-center m-auto" style="width: fit-content;">Happy clients</div>
+
+          </div>
+
+          <h2>Trusted by Builders. Valued by Contractors.</h2>
+
+          <p>Trusted by construction professionals who build smarter with Builderstreat.</p>
+
+        </div>
+
+        <div class="swiper testimonialSlider">
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+
+              <div class="testimonial-box text-center">
+
+                <img src="{{ asset('public/assets/images/client-1.png') }}" class="client-img" alt="">
+
+                <div class="stars mt-4">
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="mt-4">"Builderstreat completely changed the game for us. Their innovative approach to project management and their attention to detail made our project a success beyond our expectations."</p>
+
+
+
+                <h4>David Thompson</h4>
+
+                <span>Project Manager • Skyline Construction</span>
+
+
+
+              </div>
+
+
+
+            </div>
+
+            <div class="swiper-slide">
+
+              <div class="testimonial-box text-center">
+
+                <img src="{{ asset('public/assets/images/client-1.png') }}" class="client-img" alt="">
+
+
+
+                <div class="stars mt-4">
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                </div>
+
+
+
+                <p class="mt-4">"Builderstreat completely changed the game for us. Their innovative approach to project
+
+                  management and their attention to detail made our project a success beyond our expectations."</p>
+
+                <h4>Sauqi Arief</h4>
+
+                <span>CEO Of Mabar</span>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="swiper-slide">
+
+              <div class="testimonial-box text-center">
+
+                <img src="{{ asset('public/assets/images/client-2.png') }}" class="client-img" alt="">
+
+
+
+                <div class="stars mt-4">
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                </div>
+
+
+
+                <p class="mt-4">"We were skeptical at first, but after seeing the results in our first project with
+
+                  Builderstreat, we knew we had found a partner we could trust. Their commitment to quality and customer
+
+                  satisfaction is unmatched."</p>
+
+                <h4>Emilia Tadashi</h4>
+
+                <span>Housewife</span>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="swiper-slide">
+
+              <div class="testimonial-box text-center">
+
+                <img src="{{ asset('public/assets/images/client-3.png') }}" class="client-img" alt="">
+
+
+
+                <div class="stars mt-4">
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                  <i class="fa-solid fa-star"></i>
+
+                </div>
+
+
+
+                <p class="mt-4">"Builderstreat not only helped us complete our project on time and on budget but also
+
+                  offered valuable insights that improved the overall design and functionality of our building. We
+
+                  couldn't be happier with the outcome."</p>
+
+                <h4>Faiza Mubarak</h4>
+
+                <span>Succes Man</span>
+
+              </div>
+
+            </div>
+
+
+
+          </div>
+
+
+
+          <div class="swiper-button-prev"></div>
+
+          <div class="swiper-button-next"></div>
+
+          <div class="swiper-pagination"></div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+  <!-- FAQ -->
+
+  <section class="section wrap pt-0" id="faq">
+
+    <div class="section-head">
+
+      <div class="eyebrow">FAQ</div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <p>Explore our FAQs for quick answers to common inquiries and concerns.</p>
+
+    </div>
+
     <div class="accordion" id="builderstreatFaq">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="faqHeadingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">What is Builderstreat?</button></h2>
-            <div id="faqOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#builderstreatFaq"><div class="accordion-body">Builderstreat is a digital marketplace connecting people with surplus construction and demolition materials to those who can reuse them.</div></div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="faqHeadingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">What types of materials can be exchanged?</button></h2>
-            <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#builderstreatFaq"><div class="accordion-body">The marketplace supports a range of construction materials, including concrete, wood, metal, plastic, glass, and other surplus supplies.</div></div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="faqHeadingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">How can I get started?</button></h2>
-            <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#builderstreatFaq"><div class="accordion-body">Create a buyer or seller account, then browse materials or add your surplus listings.</div></div>
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqOne"
+                    aria-expanded="true"
+                    aria-controls="faqOne">
+                What is Builderstreat?
+            </button>
+        </h2>
+
+        <div id="faqOne"
+             class="accordion-collapse collapse show"
+             aria-labelledby="faqHeadingOne"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Builderstreat is a technology company specializing in creating solutions
+                    that expand the capabilities of the Construction and Demolition (C&D)
+                    waste recycling industry. Our digital marketplace connects companies
+                    and individuals with C&D waste to other parties that will either use
+                    it for a new purpose or efficiently recycle or dispose of it, promoting
+                    a more sustainable construction industry.
+                </p>
+            </div>
+
         </div>
     </div>
-</section>
+
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqTwo"
+                    aria-expanded="false"
+                    aria-controls="faqTwo">
+                What types of materials can be exchanged on Builderstreat?
+            </button>
+        </h2>
+
+        <div id="faqTwo"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingTwo"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Builderstreat facilitates the exchange of various materials generated
+                    from construction and demolition activities, including but not limited
+                    to concrete, wood, metal, plastic, glass, and asphalt. We aim to promote
+                    the reuse and recycling of these materials to minimize waste and
+                    environmental impact.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqThree"
+                    aria-expanded="false"
+                    aria-controls="faqThree">
+                Is Builderstreat available in multiple countries?
+            </button>
+        </h2>
+
+        <div id="faqThree"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingThree"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Now, Builderstreat operates primarily in Canada and the United States.
+                    However, we have plans to expand into other regions in the future as
+                    part of our growth strategy.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqFour"
+                    aria-expanded="false"
+                    aria-controls="faqFour">
+                Can Builderstreat users access customer support?
+            </button>
+        </h2>
+
+        <div id="faqFour"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingFour"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Yes, Builderstreat provides customer support to assist users with any
+                    questions, issues, or concerns they may have. Users can reach out to
+                    our support team through the platform's messaging system or contact us
+                    via email or phone for assistance.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FAQ 5 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingFive">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqFive"
+                    aria-expanded="false"
+                    aria-controls="faqFive">
+                Who can use Builderstreat?
+            </button>
+        </h2>
+
+        <div id="faqFive"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingFive"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Builderstreat is designed for a wide range of users within the
+                    construction industry, including large construction companies,
+                    individual contractors, waste management businesses, and suppliers
+                    of recycled materials. Whether you have surplus materials to sell
+                    or are looking for specific materials for your project, Builderstreat
+                    provides a platform for connecting with relevant parties.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FAQ 6 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingSix">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqSix"
+                    aria-expanded="false"
+                    aria-controls="faqSix">
+                How does Builderstreat handle transactions and payments?
+            </button>
+        </h2>
+
+        <div id="faqSix"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingSix"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    Builderstreat facilitates transactions between buyers and sellers on
+                    the platform. Payments are securely processed through the platform,
+                    and transaction funds are held in escrow until both parties confirm
+                    completion. This ensures transparency and protects the interests of
+                    all parties involved in the transaction.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FAQ 7 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="faqHeadingSeven">
+            <button class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqSeven"
+                    aria-expanded="false"
+                    aria-controls="faqSeven">
+                How can I get started with Builderstreat?
+            </button>
+        </h2>
+
+        <div id="faqSeven"
+             class="accordion-collapse collapse"
+             aria-labelledby="faqHeadingSeven"
+             data-bs-parent="#builderstreatFaq">
+
+            <div class="accordion-body">
+                <p>
+                    To get started with Builderstreat, simply visit our website, and sign
+                    up for a membership. Once registered, you can create a profile, list
+                    materials, browse listings, and connect with other users on the
+                    platform to start exchanging C&D waste materials efficiently and
+                    sustainably.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+  </section>
+
+
+
+
 
 <section class="section-tight wrap pt-0">
     <div class="cta-banner">

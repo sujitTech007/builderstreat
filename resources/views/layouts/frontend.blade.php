@@ -117,6 +117,7 @@
 
     <script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/script.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.querySelector('.mobile-toggle');
