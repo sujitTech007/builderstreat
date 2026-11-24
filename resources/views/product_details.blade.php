@@ -4,84 +4,188 @@
 
 @section('content')
 @php
-    $discountAmount = ($product->offer * $product->discount) / 100;
-    $finalPrice = $product->offer - $discountAmount;
+$discountAmount = ($product->offer * $product->discount) / 100;
+$finalPrice = $product->offer - $discountAmount;
 @endphp
+
 <section class="section wrap">
-    <nav class="md-crumbs" aria-label="Breadcrumb">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
         <a href="{{ route('home') }}">Home</a><span>/</span>
         <a href="{{ route('listing') }}">Material List</a><span>/</span>
         <strong>{{ $product->product_name }}</strong>
     </nav>
 
-    <div class="md-top">
-        <div class="md-photo">
+    <div class="product_details">
+        <div class="product-photo">
             <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}">
             <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
                 <i class="fa-solid fa-heart"></i>
             </button>
         </div>
         <div>
-            <p class="md-cat">{{ optional($product->category)->name ?? 'Surplus Material' }}</p>
-            <h1 class="md-title">{{ $product->product_name }}</h1>
-            <p class="md-model">{{ $product->brand_name ?: ($product->model_number ?: 'Construction material') }}</p>
+            <p class="product_categories">{{ optional($product->category)->name ?? 'Surplus Material' }}</p>
+            <h1>{{ $product->product_name }}</h1>
+            <p class="prodcut-model">{{ $product->brand_name ?: ($product->model_number ?: 'Construction material') }}</p>
 
-            <div class="md-pricebox">
-                <div class="md-price-row">
-                    <div><span class="md-now">${{ number_format($finalPrice, 2) }}</span></div>
+            <div class="product-value">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                    <h2 class="text-color-primary">${{ number_format($finalPrice, 2) }}</h2>
                     @if($product->discount)
-                        <span class="md-save">Save {{ rtrim(rtrim(number_format($product->discount, 2), '0'), '.') }}%</span>
+                    <span class="bg-success text-success bg-opacity-25 rounded-4 px-2 py-1 fs-12">Save {{ rtrim(rtrim(number_format($product->discount, 2), '0'), '.') }}%</span>
                     @endif
                 </div>
                 @if($product->offer)
-                    <p class="md-market">Listed price <s>${{ number_format($product->offer, 2) }}</s></p>
+                <p class="fs-12">Listed price <small class="text-muted">${{ number_format($product->offer, 2) }}</small></p>
                 @endif
-                <div class="md-actions">
+                <div class="d-flex flex-wrap gap-2 mt-3">
                     @if(Auth::check())
-                        <button type="button" class="btn btn-amber" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire Now</button>
+                    <button type="button" class="btn btn-amber" data-bs-toggle="modal" data-bs-target="#enquiryModal">Enquire Now</button>
                     @else
-                        <a href="{{ route('buyer.register') }}" class="btn btn-amber">Login to Enquire</a>
+                    <a href="{{ route('buyer.register') }}" class="btn btn-amber">Login to Enquire</a>
                     @endif
                     <a href="{{ route('listing') }}" class="btn btn-ghost">Back to Listings</a>
                 </div>
             </div>
 
-            <ul class="md-steps">
-                <li><b>1</b><span>Send an enquiry for the material and quantity you need.</span></li>
-                <li><b>2</b><span>Confirm the details and arrangements with the seller.</span></li>
-                <li><b>3</b><span>Review your enquiry and orders from your Buyer Dashboard.</span></li>
-            </ul>
+            <ol class="steps d-grid gap-2">
+                <li>Send an enquiry for the material and quantity you need.</li>
+                <li>Confirm the details and arrangements with the seller.</li>
+                <li>Review your enquiry and orders from your Buyer Dashboard.</li>
+            </ol>
         </div>
     </div>
 
-    <div class="md-detail">
-        <div class="md-desc">
-            <h2 class="md-h">Description</h2>
+    <div class="product-details">
+        <div>
+            <h3>Description</h3>
             <p>{{ $product->description }}</p>
         </div>
         <div>
-            <h2 class="md-h">Specifications</h2>
-            <table class="md-specs">
+            <h3>Specifications</h3>
+            <table class="w-100 border-1">
                 <tbody>
-                    <tr><th>Category</th><td>{{ optional($product->category)->name ?? 'Surplus Material' }}</td></tr>
-                    <tr><th>Brand</th><td>{{ $product->brand_name ?: '-' }}</td></tr>
-                    <tr><th>Model</th><td>{{ $product->model_number ?: '-' }}</td></tr>
-                    <tr><th>Serial No.</th><td>{{ $product->serial_number ?: '-' }}</td></tr>
-                    <tr><th>Our price</th><td>${{ number_format($finalPrice, 2) }}</td></tr>
+                    <tr>
+                        <th>Category</th>
+                        <td>{{ optional($product->category)->name ?? 'Surplus Material' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{ $product->brand_name ?: '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Model</th>
+                        <td>{{ $product->model_number ?: '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Serial No.</th>
+                        <td>{{ $product->serial_number ?: '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Our price</th>
+                        <td>${{ number_format($finalPrice, 2) }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </section>
 
-<section class="section-tight wrap pt-0">
-    <div class="cta-banner">
-        <h2>Got a site that's about<br>to strip out?</h2>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-            <a href="{{ route('seller.register') }}" class="btn">List Your Surplus</a>
-            <a href="{{ route('contact') }}" class="btn btn-ghost">Talk to Us</a>
+
+<section class="related_products mb-5">
+    <div class="container">
+        <div class="row">
+            <h3></h3>
+        </div>
+        <div class="section-head">
+
+            <div class="eyebrow">Related products</div>
+
+            <h2>More Surplus Materials</h2>
+
+        </div>
+        <div class="row">
+            <div class="related_products_list">
+                <div class="swiper btSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <a class="related_product" href="material-details.html">
+
+                                <div class="related_product-img"><img src="{{ asset('public/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles"
+
+                                        loading="lazy"></div>
+
+                                <div class="related_product-body">
+
+                                    <h4>Porcelain Floor Tiles</h4>
+
+                                    <p>$2.25 <small>/ sq ft</small></p>
+
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a class="related_product" href="material-details.html">
+
+                                <div class="related_product-img"><img src="{{ asset('public/assets/images/wood.png') }}" alt="Framing Lumber"
+
+                                        loading="lazy"></div>
+
+                                <div class="related_product-body">
+
+                                    <h4>Framing Lumber</h4>
+
+                                    <p>$2.75 <small>/ piece</small></p>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="related_product" href="material-details.html">
+
+                                <div class="related_product-img"><img src="{{ asset('public/assets/images/door.png') }}" alt="Interior Doors"
+
+                                        loading="lazy"></div>
+
+                                <div class="related_product-body">
+
+                                    <h4>Interior Doors</h4>
+
+                                    <p>$195.00 <small>/ door</small></p>
+
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a class="related_product" href="material-details.html">
+
+                                <div class="related_product-img"><img src="{{ asset('public/assets/images/product-3.jpg') }}" alt="Cement" loading="lazy"></div>
+
+                                <div class="related_product-body">
+
+                                    <h4>Cement</h4>
+
+                                    <p>$10.50 <small>/ bag</small></p>
+
+                                </div>
+
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
 </section>
 
 @if(Auth::check())
@@ -134,15 +238,42 @@
 <div class="toast-container" id="wishlist-toast-container" aria-live="polite"></div>
 
 <style>
-    .md-photo { position: relative; }
-    .wishlist-btn { position: absolute; top: 16px; right: 16px; border: 0; border-radius: 50%; width: 44px; height: 44px; background: #fff; color: #7a746b; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
-    .wishlist-btn.active { color: #ae4a2b; }
-    .toast-container { position: fixed; top: 20px; right: 20px; z-index: 1090; }
+    .product-photo {
+        position: relative;
+    }
+
+    .wishlist-btn {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        border: 0;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        background: #fff;
+        color: #7a746b;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    }
+
+    .wishlist-btn.active {
+        color: #ae4a2b;
+    }
+
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1090;
+    }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        checkWishlistStatus({{ $product->id }});
+    document.addEventListener('DOMContentLoaded', function() {
+        checkWishlistStatus({
+            {
+                $product - > id
+            }
+        });
     });
 
     function checkWishlistStatus(productId) {
@@ -167,9 +298,13 @@
         const addUrl = @json(route('wishlist.add', ':productId')).replace(':productId', productId);
         const removeUrl = @json(route('wishlist.remove', ':productId')).replace(':productId', productId);
         fetch(isInWishlist ? removeUrl : addUrl, {
-            method: isInWishlist ? 'DELETE' : 'POST',
-            headers: { 'X-CSRF-TOKEN': token.content, 'Content-Type': 'application/json', 'Accept': 'application/json' }
-        })
+                method: isInWishlist ? 'DELETE' : 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': token.content,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
             .then(response => {
                 if (!response.ok) {
                     if (response.status === 401) {

@@ -3,6 +3,7 @@
 @section('title', 'Pricing | Builderstreat')
 
 @section('content')
+
 @if(session('message'))
     <div class="wrap pt-4">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">

@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <h5 class="mb-1 fw-bold">Email</h5>
-                            <a href="mailto:info@builderstreat.ca" class="text-decoration-none">info@builderstreat.ca</a>
+                            <a href="mailto:info@builderstreat.ca" class="text-decoration-none text-secondary">info@builderstreat.ca</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div>
                             <h5 class="mb-1 fw-bold">Address</h5>
-                            <p class="mb-0">8920 Woodbine Ave Unit 304, Markham, ON L3R 9W9, Canada</p>
+                            <p class="text-decoration-none text-secondary">8920 Woodbine Ave Unit 304, Markham, ON L3R 9W9, Canada</p>
                         </div>
                     </div>
                 </div>

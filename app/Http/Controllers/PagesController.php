@@ -5,22 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use \App\Models\SubscriptionPlan;
 use App\Models\ContactMessage;
 
 class PagesController extends Controller
 {
-    public function index()
-    {
-        $products = Product::where('status', 1)
+    
+public function index()
+{
+    $plans = SubscriptionPlan::where('is_active', 1)
+        ->orderBy('sort_order')
+        ->get();
+
+    $products = Product::where('status', 1)
         ->with('category')
         ->latest()
         ->limit(10)
         ->get();
-        $highestPrice = Product::max('price');
 
-        return view('index', compact('products', 'highestPrice'));
-        
-    }
+    $highestPrice = Product::where('status', 1)->max('price') ?? 0;
+
+    return view('index', compact('plans', 'products', 'highestPrice'));
+}
+
     public function about()
     {
         return view('about');
