@@ -113,30 +113,50 @@
         <p>Browse quality surplus materials from sellers at competitive prices.</p>
     </div>
     <div class="bt-grid">
-        <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('public/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles" loading="lazy"></div>
-            <div class="bt-body">
-                <div class="bt-info"><p class="bt-cat">Tiles &amp; Flooring</p><h3 class="bt-title">Porcelain Floor Tiles</h3><p class="bt-model">Glazed 12x24 in</p></div>
-                <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$2.25</span> <span class="bt-unit">/ sq ft</span></p><span class="bt-save">Save ~47%</span></div><p class="bt-market">Market price: <span>$2.50 – $6.00</span></p></div>
-                <div class="bt-actions"><a href="{{ route('listing') }}" class="btn btn-sm bt-view">View Listings</a><a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Enquire</a></div>
-            </div>
-        </article>
-        <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('public/assets/images/wood.png') }}" alt="Framing Lumber" loading="lazy"></div>
-            <div class="bt-body">
-                <div class="bt-info"><p class="bt-cat">Lumber &amp; Wood</p><h3 class="bt-title">Framing Lumber</h3><p class="bt-model">2x4x8 SPF stud</p></div>
-                <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$2.75</span> <span class="bt-unit">/ piece</span></p><span class="bt-save">Save ~45%</span></div><p class="bt-market">Market price: <span>$3.38 – $6.58</span></p></div>
-                <div class="bt-actions"><a href="{{ route('listing') }}" class="btn btn-sm bt-view">View Listings</a><a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Enquire</a></div>
-            </div>
-        </article>
-        <article class="bt-card">
-            <div class="bt-media"><img src="{{ asset('public/assets/images/door.png') }}" alt="Interior Doors" loading="lazy"></div>
-            <div class="bt-body">
-                <div class="bt-info"><p class="bt-cat">Doors &amp; Windows</p><h3 class="bt-title">Interior Doors</h3><p class="bt-model">Pre-hung solid core</p></div>
-                <div class="bt-pricing"><div class="bt-price-row"><p class="bt-price"><span class="bt-now">$195.00</span> <span class="bt-unit">/ door</span></p><span class="bt-save">Save ~51%</span></div><p class="bt-market">Market price: <span>$280 – $520</span></p></div>
-                <div class="bt-actions"><a href="{{ route('listing') }}" class="btn btn-sm bt-view">View Listings</a><a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Enquire</a></div>
-            </div>
-        </article>
+        @forelse($products as $product)
+            @php
+                $discountAmount = ($product->offer * $product->discount) / 100;
+                $finalPrice = $product->offer - $discountAmount;
+            @endphp
+            <article class="bt-card">
+                <div class="bt-media">
+                    <a href="{{ route('products.details', $product->id) }}">
+                        <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
+                    </a>
+                    <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="bt-body">
+                    <div class="bt-info">
+                        <p class="bt-cat">{{ optional($product->category)->name ?? 'Surplus Material' }}</p>
+                        <h3 class="bt-title">{{ $product->product_name }}</h3>
+                        <p class="bt-model">{{ $product->brand_name ?: ($product->model_number ?: 'Construction material') }}</p>
+                    </div>
+                    <div class="bt-pricing">
+                        <div class="bt-price-row">
+                            <p class="bt-price"><span class="bt-now">${{ number_format($finalPrice, 2) }}</span></p>
+                            @if($product->discount)
+                                <span class="bt-save">Save {{ rtrim(rtrim(number_format($product->discount, 2), '0'), '.') }}%</span>
+                            @endif
+                        </div>
+                        <p class="bt-market">{{ Str::limit($product->description, 110) }}</p>
+                    </div>
+                    <div class="bt-actions">
+                        <a href="{{ route('products.details', $product->id) }}" class="btn btn-sm bt-view">View</a>
+                        @if(Auth::check())
+                            <a href="{{ route('products.details', $product->id) }}" class="btn btn-amber btn-sm">Enquire</a>
+                        @else
+                            <a href="{{ route('buyer.register') }}" class="btn btn-amber btn-sm">Login to Enquire</a>
+                        @endif
+                    </div>
+                </div>
+            </article>
+        @empty
+            <p class="text-muted">No products found.</p>
+        @endforelse
+        
+        
     </div>
     <div class="text-center mt-4"><a href="{{ route('listing') }}" class="btn btn-primary">View all materials</a></div>
 </section>

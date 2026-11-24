@@ -11,7 +11,15 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $products = Product::where('status', 1)
+        ->with('category')
+        ->latest()
+        ->limit(10)
+        ->get();
+        $highestPrice = Product::max('price');
+
+        return view('index', compact('products', 'highestPrice'));
+        
     }
     public function about()
     {
