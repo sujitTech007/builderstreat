@@ -204,7 +204,7 @@
 
         <div class="card-body p-0">
 
-            <div class="table-responsive">
+            <div class="table-responsive theme_table">
 
                 <table class="table table-hover align-middle mb-0">
 

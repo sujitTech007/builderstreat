@@ -1,28 +1,24 @@
 @include('admin.include.header')
-<div class="page-content">
-    <div class="container-fluid">
-        <!-- start page title -->
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Edit Subscription Plan</h4>
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.subscription-plans.index') }}">Subscription Plans</a></li>
-                            <li class="breadcrumb-item active">Edit</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end page title -->
 
-        <div class="row">
+<main class="content">
+    <div class="page-content">
+        <div class="d-flex justify-content-between align-items-center mb-4 page-head">
+            <div>
+                <h1 class="mb-1">Edit Subscription Plan</h1>
+                <p class="text-muted mb-0">
+                    Users, material approvals, orders and marketplace activity.
+                </p>
+            </div>
+            
+
+                
+        </div>
+      
+      <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title mb-0">Edit Subscription Plan: {{ $subscriptionPlan->name }}</h4>
+                <div class="card shadow-none">
+                    <div class="card-header bg-transparent border-0">
+                        <h4 class="card-title mb-0 fs-5 fw-bold">Edit Subscription Plan: {{ $subscriptionPlan->name }}</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.subscription-plans.update', $subscriptionPlan) }}" method="POST">
@@ -151,7 +147,7 @@
                                         </div>
                                     @endif
                                 </div>
-                                <button type="button" class="btn btn-outline-primary btn-sm" id="add-feature">
+                                <button type="button" class="btn btn-info btn-sm" id="add-feature">
                                     <i class="ri-add-line"></i> Add Feature
                                 </button>
                             </div>
@@ -195,9 +191,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
+        
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const addFeatureBtn = document.getElementById('add-feature');
@@ -224,4 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+    </div>
+</main>
+
 @include('admin.include.footer')

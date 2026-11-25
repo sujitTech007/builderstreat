@@ -14,7 +14,7 @@
                                     </div>
                                 </div>
                                 <div class="container mt-1">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive theme_table">
                                         <table class="table table-bordered text-center align-middle">
                                             <thead class="table-primary">
                                                 <tr>

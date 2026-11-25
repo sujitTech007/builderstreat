@@ -1,35 +1,23 @@
 @include('admin.include.header')
-<div class="page-content">
-    <div class="container-fluid">
-        <!-- start page title -->
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Subscription Plans</h4>
-                    <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Subscription Plans</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end page title -->
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="card-title mb-0">All Subscription Plans</h4>
-                            <a href="{{ route('admin.subscription-plans.create') }}" class="btn btn-primary">
+<main class="content">
+    <div class="page-content">
+        <div class="d-flex justify-content-between align-items-center mb-4 page-head">
+            <div>
+                <h1 class="mb-1">Subscription Plans</h1>
+                <p class="text-muted mb-0">
+                    Users, material approvals, orders and marketplace activity.
+                </p>
+            </div>
+            <div>
+                <a href="{{ route('admin.subscription-plans.create') }}" class="btn btn-primary">
                                 <i class="ri-add-line align-bottom me-1"></i> Add New Plan
                             </a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        @if(session('success'))
+            </div>
+
+                
+        </div>
+        @if(session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('success') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -42,12 +30,12 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
+        <div class="table-responsive theme_table">
+                                                                               <table class="table table-hover align-middle mb-0">
 
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
+                    <thead class="table-light">
+                                                <tr>
+                                                    <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
@@ -56,26 +44,39 @@
                                         <th>Status</th>
                                         <th>Sort Order</th>
                                         <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($plans as $plan)
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               @forelse($plans as $plan)
                                     <tr>
                                         <td>{{ $plan->id }}</td>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                @if($plan->icon)
-                                                    <div class="avatar-xs me-2">
-                                                        <div class="avatar-title rounded-circle bg-light text-{{ $plan->icon_color ?? 'primary' }}">
-                                                            <i class="{{ $plan->icon }}"></i>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                                <strong>{{ $plan->name }}</strong>
-                                                @if($plan->is_featured)
-                                                    <span class="badge bg-warning ms-2">Featured</span>
-                                                @endif
-                                            </div>
+                                            
+<div class="d-flex align-items-center gap-2">
+
+    @if($plan->icon)
+        <div class="d-flex align-items-center justify-content-center rounded-3 bg-{{ $plan->icon_color ?? 'primary' }} bg-opacity-10 text-{{ $plan->icon_color ?? 'primary' }}"
+             style="width: 42px; height: 42px; flex-shrink: 0;">
+
+            <i class="{{ $plan->icon }}" style="font-size: 21px;"></i>
+        </div>
+    @endif
+
+    <div class="d-flex flex-column">
+        <strong class="text-dark fw-semibold">
+            {{ $plan->name }}
+        </strong>
+
+        @if($plan->is_featured)
+            <span class="badge bg-warning text-dark rounded-pill mt-1"
+                  style="width: fit-content; font-size: 10px;">
+                <i class="fa-solid fa-star me-1"></i> Featured
+            </span>
+        @endif
+    </div>
+
+</div>
+
                                         </td>
                                         <td>{{ Str::limit($plan->description, 50) }}</td>
                                         <td>
@@ -107,22 +108,25 @@
                                         </td>
                                         <td>{{ $plan->sort_order }}</td>
                                         <td>
-                                            <div class="d-flex gap-2">
+
+               
+
+                                            <div class="table-actions d-flex gap-2">
                                                 <a href="{{ route('admin.subscription-plans.show', $plan) }}" 
-                                                   class="btn btn-sm btn-info d-flex align-items-center" title="View">
-                                                    <i class="ri-eye-line me-1" style="font-size: 1.1em;"></i> View
+                                                   class="btn btn-sm btn-info text-white" title="View">
+                                                    <i class="fa-solid fa-eye"></i>
                                                 </a>
                                                 <a href="{{ route('admin.subscription-plans.edit', $plan) }}" 
-                                                   class="btn btn-sm btn-warning d-flex align-items-center" title="Edit">
-                                                    <i class="ri-edit-line me-1" style="font-size: 1.1em;"></i> Edit
+                                                   class="btn btn-sm btn-warning text-dark" title="Edit">
+                                                   <i class="fa-solid fa-pen"></i>
                                                 </a>
                                                 <form action="{{ route('admin.subscription-plans.toggle-status', $plan) }}" 
                                                       method="POST" class="d-inline">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <button type="submit" class="btn btn-sm btn-{{ $plan->is_active ? 'secondary' : 'success' }} d-flex align-items-center" 
+                                                    <button type="submit" class="btn btn-sm w-auto px-2 btn-{{ $plan->is_active ? 'secondary' : 'success' }} d-flex align-items-center" 
                                                             title="{{ $plan->is_active ? 'Deactivate' : 'Activate' }}">
-                                                        <i class="ri-{{ $plan->is_active ? 'close-line' : 'check-line' }} me-1" style="font-size: 1.1em;"></i>
+                                                        <i class="fa-solid {{ $plan->is_active ? 'fa-xmark' : 'fa-check' }}"></i>
                                                         {{ $plan->is_active ? 'Deactivate' : 'Activate' }}
                                                     </button>
                                                 </form>
@@ -131,12 +135,11 @@
                                                       onsubmit="return confirm('Are you sure you want to delete this plan?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger d-flex align-items-center" title="Delete">
-                                                        <i class="ri-delete-bin-line me-1" style="font-size: 1.1em;"></i> Delete
+                                                    <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                                        <i class="fa-solid fa-trash"></i>
                                                     </button>
                                                 </form>
-                                                    </button>
-                                                </form>
+                                                   
                                             </div>
                                         </td>
                                     </tr>
@@ -145,13 +148,118 @@
                                         <td colspan="9" class="text-center">No subscription plans found.</td>
                                     </tr>
                                     @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                <!-- Popup Modal -->
+                                <div class="modal fade" id="confirmModal" tabindex="-1"
+                                    aria-labelledby="confirmModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content p-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="modal-title fw-bold text-primary">Confirmation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <p class="mb-4">Do you want to approve/reject this request?</p>
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <button type="button" class="btn btn-success">Approved</button>
+                                                <button type="button" class="btn btn-danger">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               <script>
+                                    function showConfirm(status) {
+                                        const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+                                        modal.show();
+                                    }
+
+                                    // Toggle Switch Functionality
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const toggleSwitches = document.querySelectorAll('.toggle-switch');
+                                        
+                                        toggleSwitches.forEach(function(toggle) {
+                                            toggle.addEventListener('change', function() {
+                                                const sellerId = this.getAttribute('data-seller-id');
+                                                const route = this.getAttribute('data-route');
+                                                const isChecked = this.checked;
+                                                const statusText = this.parentElement.querySelector('.status-text-' + sellerId);
+                                                
+                                                // Show loading state
+                                                this.disabled = true;
+                                                const originalText = statusText.textContent;
+                                                statusText.textContent = 'Updating...';
+                                                
+                                                // Create form data
+                                                const formData = new FormData();
+                                                formData.append('_token', '{{ csrf_token() }}');
+                                                formData.append('_method', 'PATCH');
+                                                formData.append('status', isChecked ? '1' : '0');
+                                                
+                                                // Send AJAX request
+                                                fetch(route, {
+                                                    method: 'POST',
+                                                    body: formData,
+                                                    headers: {
+                                                        'X-Requested-With': 'XMLHttpRequest'
+                                                    }
+                                                })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    if (data.success) {
+                                                        // Update status text
+                                                        statusText.textContent = isChecked ? 'Approved' : 'Not Approved';
+                                                        
+                                                        // Show success message
+                                                        showNotification('Status updated successfully!', 'success');
+                                                    } else {
+                                                        // Revert toggle if failed
+                                                        this.checked = !isChecked;
+                                                        statusText.textContent = originalText;
+                                                        showNotification('Failed to update status. Please try again.', 'error');
+                                                    }
+                                                })
+                                                .catch(error => {
+                                                    console.error('Error:', error);
+                                                    // Revert toggle if failed
+                                                    this.checked = !isChecked;
+                                                    statusText.textContent = originalText;
+                                                    showNotification('An error occurred. Please try again.', 'error');
+                                                })
+                                                .finally(() => {
+                                                    // Re-enable toggle
+                                                    this.disabled = false;
+                                                });
+                                            });
+                                        });
+                                    });
+
+                                    // Notification function
+                                    function showNotification(message, type) {
+                                        // Create notification element
+                                        const notification = document.createElement('div');
+                                        notification.className = `alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show position-fixed`;
+                                        notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+                                        notification.innerHTML = `
+                                            ${message}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        `;
+                                        
+                                        // Add to page
+                                        document.body.appendChild(notification);
+                                        
+                                        // Auto remove after 3 seconds
+                                        setTimeout(() => {
+                                            if (notification.parentNode) {
+                                                notification.remove();
+                                            }
+                                        }, 3000);
+                                    }
+                                </script>
     </div>
-</div>
- @include('admin.include.footer')
+</main>
+
+@include('admin.include.footer')

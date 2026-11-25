@@ -31,7 +31,7 @@
                                         </script>
             </div>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive theme_table">
                                                                                <table class="table table-hover align-middle mb-0">
 
                     <thead class="table-light">
@@ -73,7 +73,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="justify-content-center gap-2 table-actions gap-2">
-                                                            <a href="{{ route('products.details', $product->id) }}" class="btn bg-primary-subtle text-primary border border-primary-subtle" target="_blank" title="View"><i class="fa-solid fa-eye"></i></a>
+                                                            <a href="{{ route('products.details', $product->id) }}" class="btn btn-sm btn-info text-white" target="_blank" title="View"><i class="fa-solid fa-eye"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>

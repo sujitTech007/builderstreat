@@ -335,6 +335,13 @@ img { max-width: 100%; display: block; }
 .btn-sm { padding: 8px 11px; font-size: 12px; border-radius: 10px; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
+
+
+.table-actions .btn-danger{
+  background: #dc3545;
+}
+
+
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
