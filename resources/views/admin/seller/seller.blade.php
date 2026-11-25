@@ -1,102 +1,40 @@
 @include('admin.include.header')
 
-<style>
-/* Custom Toggle Switch Styles */
-.form-check-input.toggle-switch {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+<main class="content">
+    <div class="page-content">
+        <div class="d-flex justify-content-between align-items-center mb-4 page-head">
+            <div>
+                <h1 class="mb-1">Seller Request</h1>
+                <p class="text-muted mb-0">
+                    Users, material approvals, orders and marketplace activity.
+                </p>
+            </div>
 
-.form-check-input.toggle-switch:checked {
-    background-color: #198754;
-    border-color: #198754;
-}
+            <div>
+                <div class="d-flex align-items-center gap-2">
+                    <label for="search" class="form-label mb-0 me-1">Search:</label>
+                        <input type="search" id="search" class="form-control d-inline w-auto" placeholder="Search sellers...">
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const searchInput = document.getElementById('search');
+                            searchInput.addEventListener('keyup', function () {
+                                const filter = searchInput.value.toLowerCase();
+                                const table = document.querySelector('table');
+                                const rows = table.querySelectorAll('tbody tr');
+                                rows.forEach(function (row) {
+                                    const text = row.textContent.toLowerCase();
+                                    row.style.display = text.includes(filter) ? '' : 'none';
+                                });
+                            });
+                        });
+                    </script>
+            </div>
+        </div>
+        <div class="table-responsive">
+                                                                               <table class="table table-hover align-middle mb-0">
 
-.form-check-input.toggle-switch:focus {
-    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
-}
-
-.form-check-input.toggle-switch:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.form-check-label {
-    font-weight: 500;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Status text colors */
-.status-text-{{ $seller->id ?? 'default' }} {
-    transition: color 0.3s ease;
-}
-
-/* Loading animation */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.form-check-input.toggle-switch:disabled + .form-check-label {
-    animation: pulse 1.5s infinite;
-}
-</style>
-
-
-<body>
-    <!-- Begin page -->
-    <div class="wrapper active">
-        <div class="page-content">
-
-            <div class="page-container p-3">
-
-                <div class="meetingPpage">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div
-                                    class="card-header border-bottom card-tabs d-flex flex-wrap align-items-center gap-2">
-                                    <div class="flex-grow-1">
-                                        <h4 class="header-title">Seller Request</h4>
-                                    </div>
-                                </div>
-                                <div class="container mt-1">
-                                    <div class=" d-flex justify-content-between mb-3">
-                                        <!-- <div>
-                                            Show Entries
-                                            <select class="form-select d-inline w-auto">
-                                                <option>10</option>
-                                                <option>25</option>
-                                                <option>50</option>
-                                            </select>
-
-                                        </div> -->
-                                        <div>
-                                            <label for="search" class="form-label mb-0 me-1">Search:</label>
-                                            <input type="search" id="search" class="form-control d-inline w-auto" placeholder="Search sellers...">
-                                        </div>
-                                        <script>
-                                            document.addEventListener('DOMContentLoaded', function () {
-                                                const searchInput = document.getElementById('search');
-                                                searchInput.addEventListener('keyup', function () {
-                                                    const filter = searchInput.value.toLowerCase();
-                                                    const table = document.querySelector('table');
-                                                    const rows = table.querySelectorAll('tbody tr');
-                                                    rows.forEach(function (row) {
-                                                        const text = row.textContent.toLowerCase();
-                                                        row.style.display = text.includes(filter) ? '' : 'none';
-                                                    });
-                                                });
-                                            });
-                                        </script>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered text-center align-middle">
-                                            <thead class="table-primary">
+                    <thead class="table-light">
                                                 <tr>
                                                     <th>Sr. No.</th>
                                                     <th>Name</th>
@@ -117,15 +55,15 @@
                                                     <td>{{ $seller->email }}</td>
                                                     <td>{{ $seller->phone }}</td>
                                                     <td>
-                                                        <div class="d-flex align-items-center justify-content-center">
-                                                            <div class="form-check form-switch">
+                                                        <div class="d-flex">
+                                                            <div class="form-check form-switch d-flex">
                                                                 <input class="form-check-input toggle-switch" type="checkbox" 
                                                                        id="toggle_{{ $seller->id }}" 
                                                                        data-seller-id="{{ $seller->id }}"
                                                                        data-route="{{ route('admin.sellers.approval', $seller->id) }}"
                                                                        {{ $seller->is_active ? 'checked' : '' }}
                                                                        style="width: 3rem; height: 1.5rem;">
-                                                                <label class="form-check-label ms-2" for="toggle_{{ $seller->id }}">
+                                                                <label class="form-check-label ms-2 ms-2 fs-10" for="toggle_{{ $seller->id }}">
                                                                     <span class="status-text-{{ $seller->id }}">
                                                                         {{ $seller->is_active ? 'Approved' : 'Not Approved' }}
                                                                     </span>
@@ -145,7 +83,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
 
                                 <!-- Popup Modal -->
                                 <div class="modal fade" id="confirmModal" tabindex="-1"
@@ -166,31 +103,7 @@
                                     </div>
                                 </div>
 
-                              
-                            </div> 
-                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div> <!-- container -->
-
-        <script>
+                               <script>
                                     function showConfirm(status) {
                                         const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
                                         modal.show();
@@ -278,4 +191,7 @@
                                         }, 3000);
                                     }
                                 </script>
-        @include('admin.include.footer')
+    </div>
+</main>
+
+@include('admin.include.footer')

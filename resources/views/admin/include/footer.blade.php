@@ -183,7 +183,12 @@
     </div>
 
     <!-- Vendor js -->
-    <script src="{{asset('public/assets/adminassets/js/vendor.min.js.download')}}"></script>
+    <script src="{{asset('public/assets/js/bootstrap.bundle.min.js')}}"></script>
+ <script src="{{asset('public/assets/js/dashboard.js')}}"></script>
+
+
+        <script src="{{asset('public/assets/adminassets/js/vendor.min.js.download')}}"></script>
+
 
     <!-- App js -->
     <script src="{{asset('public/assets/adminassets/js/app.js.download')}}"></script>
@@ -195,5 +200,7 @@
     <script src="{{asset('public/assets/adminassets/js/dashboard.js.download')}}"></script>
 
 
+
+    
 
 </body></html>

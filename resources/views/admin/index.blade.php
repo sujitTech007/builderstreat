@@ -1,143 +1,266 @@
 @include('admin.include.header')
 
+<main class="content">
 <div class="page-content">
+     <div class="d-flex justify-content-between align-items-center mb-4 page-head">
+        <div>
+            <h1 class="mb-1">Dashboard</h1>
+            <p class="text-muted mb-0">
+                Users, material approvals, orders and marketplace activity.
+            </p>
+        </div>
 
-
-    <div class="page-container p-3">
-        <div class="container py-1">
-            <div class="row">
-
-                <!-- Total Buyers -->
-                <div class="col-lg-4">
-                    <a href="{{ route('admin.buyers') }}">
-                        <div class="card h-50 text-center shadow">
-                            <div class="card-body custom-card-body card-body-users">
-                                <div class="growth-text">
-                                    <p class="card-text mb-0 card-text-users">Total Buyers</p>
-                                    <h5 class="card-title mb-1 card-title-users">{{ $buyerCount }}</h5>
-                                </div>
-                                <div class="icon-box display-4 text-primary mb-2">
-                                    <i class="bi bi-people-fill"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Total Sellers -->
-                <div class="col-lg-4">
-                    <a href="{{ route('admin.sellers') }}">
-                        <div class="card h-50 text-center shadow">
-                            <div class="card-body custom-card-body card-body-growth">
-                                <div class="growth-text">
-                                    <p class="card-text mb-0 card-text-growth">Total Sellers</p>
-                                    <h5 class="card-title mb-1 card-title-growth">{{ $sellerCount}}</h5>
-                                </div>
-                                <div class="icon-box display-4 text-success mb-2">
-                                    <i class="bi bi-person-badge-fill"></i> <!-- ✅ Changed: more seller-appropriate icon -->
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Total RFQ -->
-                <div class="col-lg-4">
-                    <a href="{{ route('admin.enquiries') }}">
-                        <div class="card h-50 text-center shadow">
-                            <div class="card-body custom-card-body card-body-rating">
-                                <div class="growth-text">
-                                    <p class="card-text mb-0 card-text-rating">Total Payments</p>
-                                    <h5 class="card-title mb-1 card-title-rating">{{ $orderPaymentCount }}</h5>
-                                </div>
-                                <div class="icon-box display-4 text-warning mb-2">
-                                    <i class="bi bi-wallet"></i>
-                                    <!-- ✅ Changed: better for "Requests for Quotation" -->
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Approved Sellers -->
-                
-
-            </div>
-            <div class="row">
-                
-                <div class="col-lg-4">
-                    <a href="{{ route('admin.sellers.approved',  ['status' => 'approved']) }}">
-                        <div class="card h-50 text-center shadow">
-                            <div class="card-body custom-card-body card-body-uptime">
-                                <div class="growth-text">
-                                    <p class="card-text mb-0 card-text-uptime">Approved Sellers</p>
-                                    <h5 class="card-title mb-1 card-title-uptime">{{ $activeSellerCount }}</h5>
-                                </div>
-                                <div class="icon-box display-4 text-danger mb-2">
-                                    <i class="bi bi-check-circle-fill"></i> <!-- ✅ Already correct -->
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="col-lg-4">
-                    <a href="{{ route('admin.sellers.approved',  ['status' => 'rejected']) }}">
-                        <div class="card h-50 text-center shadow">
-                            <div class="card-body custom-card-body card-body-uptime">
-                                <div class="growth-text">
-                                    <p class="card-text mb-0 card-text-uptime">Rejected Sellers</p>
-                                    <h5 class="card-title mb-1 card-title-uptime">{{ $rejectedSellerCount }}</h5>
-                                </div>
-                                <div class="icon-box display-4 text-danger mb-2">
-                                    <i class="bi bi-x-circle-fill"></i> <!-- ✅ Already correct -->
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card h-50 text-center shadow">
-                        <div class="card-body custom-card-body card-body-uptime">
-                            <div class="growth-text">
-                                <p class="card-text mb-0 card-text-uptime">Total RFQ's</p>
-                                <h5 class="card-title mb-1 card-title-uptime">{{ $RfqsCount }}</h5>
-                            </div>
-                            <div class="icon-box display-4 text-danger mb-2">
-                                <i class="bi bi-receipt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-           <div class="row mt-4">
-                <!-- Bar Chart -->
-                <div class="col-lg-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <h5 class="card-title">Dashboard Overview (Bar)</h5>
-                            <canvas id="dashboardBarChart" height="100"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Doughnut Chart -->
-                <div class="col-lg-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <h5 class="card-title">Dashboard Overview (Doughnut)</h5>
-                            <canvas id="dashboardDoughnutChart" height="100"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+        <div>
+            <a href="materials/pending.html" class="btn btn-primary">
+                <i class="fa-solid fa-clock-rotate-left me-1"></i>
+                Review Pending Lots
+            </a>
         </div>
     </div>
+
+
+  
+            
+<div class="row g-4 mb-4">
+
+    <!-- Total Buyers -->
+    <div class="col-xl-3 col-md-6">
+        <a href="{{ route('admin.buyers') }}" class="text-decoration-none">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Buyers</p>
+                            <h3 class="mb-1">{{ $buyerCount }}</h3>
+                        </div>
+                        <div class="fs-1 text-primary">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Total Sellers -->
+    <div class="col-xl-3 col-md-6">
+        <a href="{{ route('admin.sellers') }}" class="text-decoration-none">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Sellers</p>
+                            <h3 class="mb-1">{{ $sellerCount }}</h3>
+                        </div>
+                        <div class="fs-1 text-success">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Total Payments -->
+    <div class="col-xl-3 col-md-6">
+        <a href="{{ route('admin.enquiries') }}" class="text-decoration-none">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Payments</p>
+                            <h3 class="mb-1">{{ $orderPaymentCount }}</h3>
+                        </div>
+                        <div class="fs-1 text-warning">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Approved Sellers -->
+    <div class="col-xl-3 col-md-6">
+        <a href="{{ route('admin.sellers.approved', ['status' => 'approved']) }}" class="text-decoration-none">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Approved Sellers</p>
+                            <h3 class="mb-1">{{ $activeSellerCount }}</h3>
+                        </div>
+                        <div class="fs-1 text-success">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Rejected Sellers -->
+    <div class="col-xl-3 col-md-6">
+        <a href="{{ route('admin.sellers.approved', ['status' => 'rejected']) }}" class="text-decoration-none">
+            <div class="card border-0 shadow-none h-100 card_chart">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Rejected Sellers</p>
+                            <h3 class="mb-1">{{ $rejectedSellerCount }}</h3>
+                        </div>
+                        <div class="fs-1 text-danger">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Total RFQs -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-none h-100 card_chart">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-muted mb-2">Total RFQ's</p>
+                        <h3 class="mb-1">{{ $RfqsCount }}</h3>
+                    </div>
+                    <div class="fs-1 text-info">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<div class="row g-4 mb-4">
+
+        <!-- Sales Overview -->
+        <div class="col-xl-8">
+            <div class="card border-1 shadow-none h-100">
+                <div class="card-header bg-white border-0 p-0 mb-2">
+                    <h5 class="mb-1">Marketplace Performance Overview</h5>
+                            <p class="text-muted small mb-0">
+                                Monthly Marketplace Performance Trends
+                            </p>
+                </div>
+
+                <div class="card-body" style="height: 300px;">
+                    <canvas id="dashboardBarChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- User Overview -->
+        <div class="col-xl-4">
+            <div class="card border-1 shadow-none h-100 bg-success bg-opacity-25">
+                <div class="card-header bg-transparent border-0 pt-1 mb-2 px-2">
+                    <h5 class="mb-1">Marketplace Distribution</h5>
+                    <p class="text-muted small mb-0">Marketplace Category Distribution</p>
+                </div>
+
+                <div class="card-body p-0" style="height: 250px;">
+                    <canvas id="dashboardDoughnutChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+    <!-- Recent Orders -->
+    <div class="card border-0 shadow-none mb-4 p-0">
+
+        <div class="card-header bg-white border-0 pt-4 px-0">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h5 class="mb-1">
+                        <i class="fa-solid fa-box me-2 text-primary"></i>
+                        Recent Orders
+                    </h5>
+
+                    <p class="text-muted small mb-0">
+                        Latest marketplace transactions
+                    </p>
+                </div>
+
+                <a href="orders/index.html"
+                   class="btn btn-sm btn-outline-primary">
+                    View All
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Order ID</th>
+            <th>Enquiry ID</th>
+            <th>Buyer</th>
+            <th>Seller</th>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Payment Status</th>
+            <th>Created At</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        
+
+                        <tr>
+                            <td class="fw-semibold">#BT-10245</td>
+                            <td>INQ038</td>
+                            <td>ABC Construction</td>
+                            <td>XD Builder</td>
+                            <td>Steel Rods</td>
+                             <td>100Nos</td>
+                            <td>$12,000.00</td>
+                            <td>
+                                <span class="badge bg-warning text-warning bg-opacity-10 p-2">
+                                    Pending
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge bg-danger text-danger bg-opacity-25 p-2">
+                                    Unpaid
+                                </span>
+                            </td>
+                            <td>11 Oct 2025</td>
+                        </tr>
+
+
+                        
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const barCtx = document.getElementById('dashboardBarChart').getContext('2d');
