@@ -14,20 +14,20 @@
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/services.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/mostpopular.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/pricing.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/team.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/testimonial.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/joinus.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/navbar2.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/acordation.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/missionstatement.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/about.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/aboutus.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/welcome.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/cdwasteproject1.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/services.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/mostpopular.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/pricing.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/team.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/testimonial.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/joinus.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/navbar2.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/acordation.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/missionstatement.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/aboutus.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/frontend/cdwasteproject1.css') }}"> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -102,7 +102,7 @@
 }
 
     </style>
-    <link rel="icon" type="image/png" href="{{ asset('assets/frontend/images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('public/assets/frontend/images/logo.png') }}">
 </head>
 <body>
     <title>BuildersTreat</title>
@@ -110,7 +110,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid headerContainer">
                 <a class="navbar-brand logo1 " href="#">
-                    <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="logo" class="fotter-logo">
+                    <img src="{{ asset('public/assets/frontend/images/logo.png') }}" alt="logo" class="fotter-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +148,7 @@
                        @if(Auth::check())
                             @if(Auth::user()->role == 1)
                                 <li class="nav-item dropdown" style="background: #6E7E1D;">
-                                    <a class="nav-link" href="{{ route('buyer.profile.edit') }}" style="color:#fff;">Dashboard  <img src="{{ asset('assets/frontend/images/arrow.png') }}" alt="arrow"></a>
+                                    <a class="nav-link" href="{{ route('buyer.profile.edit') }}" style="color:#fff;">Dashboard  <img src="{{ asset('public/assets/frontend/images/arrow.png') }}" alt="arrow"></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('buyer.wishlist.index') }}" style="color:#6E7E1D;">
@@ -158,14 +158,14 @@
                                 </li>
                             @elseif(Auth::user()->role == 2)
                                 <li class="nav-item dropdown " style="background: #6E7E1D;">
-                                    <a class="nav-link" href="{{ route('seller.dashboard') }}" style="color:#fff;">Dashboard  <img src="{{ asset('assets/frontend/images/arrow.png') }}" alt="arrow"></a>
+                                    <a class="nav-link" href="{{ route('seller.dashboard') }}" style="color:#fff;">Dashboard  <img src="{{ asset('public/assets/frontend/images/arrow.png') }}" alt="arrow"></a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown" style="background: #6E7E1D;">
                                 <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:#fff;";
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Login/Register <img src="{{ asset('assets/frontend/images/arrow.png') }}" alt="arrow">
+                                    Login/Register <img src="{{ asset('public/assets/frontend/images/arrow.png') }}" alt="arrow">
                                 </a>
                                 <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item text-white" href="{{ route('buyer.register') }}">Buyer</a></li>
@@ -238,7 +238,7 @@ function updateHeaderWishlistCount() {
             console.error('Error updating header wishlist count:', error);
         });
 }
-
+    
 // Function to be called from other pages when wishlist is updated
 function refreshHeaderWishlistCount() {
     updateHeaderWishlistCount();

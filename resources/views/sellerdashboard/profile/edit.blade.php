@@ -1,7 +1,12 @@
 @extends('layouts.seller')
 
 @section('content')
-<h2 class="fw-bold mb-4">Profile</h2>
+<div class="page-head">
+    <div>
+        <h1>Profile & Settings</h1>
+        <p>Update your account, address, and payment details.</p>
+    </div>
+</div>
 @if(session('success'))
 <div class="alert alert-success">{{ session('success') }}</div>
 @endif
@@ -109,7 +114,12 @@
 </script>
 
 {{-- Address Section --}}
-<h2 class="fw-bold mb-4 mt-5">Address</h2>
+<div class="page-head mt-5">
+    <div>
+        <h2>Address</h2>
+        <p>Set the address associated with your business.</p>
+    </div>
+</div>
 <div class="card p-4 mx-auto">
     <form action="{{ route('seller.address.store') }}" method="POST" class="seller-dashboard-form">
         @csrf
@@ -139,13 +149,18 @@
 
 
 <div class="account-info radius-md mb-4 mt-5">
-      <h2 class="fw-bold mb-4 ">Bank Details</h2>
+      <div class="page-head mt-5">
+          <div>
+              <h2>Bank Details</h2>
+              <p>Maintain the bank information associated with your account.</p>
+          </div>
+      </div>
     <div class="card p-4 mx-auto">
     <div class="edit-info-area">
         @if (Session::has('success'))
         <div class="alert alert-success">{{ Session::get('success') }}</div>
         @endif
-        <form action="{{ route('seller.update.bank.details') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('seller.update.bank.details') }}" method="POST" enctype="multipart/form-data" class="seller-dashboard-form">
             @csrf
             <div class="row">
 

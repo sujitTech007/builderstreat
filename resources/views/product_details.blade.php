@@ -17,7 +17,7 @@ $finalPrice = $product->offer - $discountAmount;
 
     <div class="product_details">
         <div class="product-photo">
-            <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}">
+            <img src="{{ $product->image ? asset($product->image) : asset('public/assets/builderstreat-html/assets/images/product.jpg') }}" alt="{{ $product->product_name }}">
             <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
                 <i class="fa-solid fa-heart"></i>
             </button>
@@ -111,7 +111,7 @@ $finalPrice = $product->offer - $discountAmount;
                         <div class="swiper-slide">
                             <a class="related_product" href="material-details.html">
 
-                                <div class="related_product-img"><img src="{{ asset('public/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles"
+                                <div class="related_product-img"><img src="{{ asset('public/assets/builderstreat-html/assets/images/tiles-thumb.png') }}" alt="Porcelain Floor Tiles"
 
                                         loading="lazy"></div>
 
@@ -129,7 +129,7 @@ $finalPrice = $product->offer - $discountAmount;
                         <div class="swiper-slide">
                             <a class="related_product" href="material-details.html">
 
-                                <div class="related_product-img"><img src="{{ asset('public/assets/images/wood.png') }}" alt="Framing Lumber"
+                                <div class="related_product-img"><img src="{{ asset('public/assets/builderstreat-html/assets/images/wood.png') }}" alt="Framing Lumber"
 
                                         loading="lazy"></div>
 
@@ -147,7 +147,7 @@ $finalPrice = $product->offer - $discountAmount;
                         <div class="swiper-slide">
                             <a class="related_product" href="material-details.html">
 
-                                <div class="related_product-img"><img src="{{ asset('public/assets/images/door.png') }}" alt="Interior Doors"
+                                <div class="related_product-img"><img src="{{ asset('public/assets/builderstreat-html/assets/images/door.png') }}" alt="Interior Doors"
 
                                         loading="lazy"></div>
 
@@ -165,7 +165,7 @@ $finalPrice = $product->offer - $discountAmount;
                         <div class="swiper-slide">
                             <a class="related_product" href="material-details.html">
 
-                                <div class="related_product-img"><img src="{{ asset('public/assets/images/product-3.jpg') }}" alt="Cement" loading="lazy"></div>
+                                <div class="related_product-img"><img src="{{ asset('public/assets/builderstreat-html/assets/images/product-3.jpg') }}" alt="Cement" loading="lazy"></div>
 
                                 <div class="related_product-body">
 

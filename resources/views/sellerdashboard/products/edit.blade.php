@@ -1,7 +1,12 @@
 @extends('layouts.seller')
 
 @section('content')
-<h2 class="fw-bold mb-4">Edit Product</h2>
+<div class="page-head">
+    <div>
+        <h1>Edit Material</h1>
+        <p>Update the listing details buyers see for this material.</p>
+    </div>
+</div>
 
 <div class="card p-4 mx-auto">
     <form action="{{ route('seller.products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="seller-dashboard-form">

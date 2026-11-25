@@ -4,7 +4,7 @@
 
     @section('content')
     <section class="hero position-relative">
-        <img src="{{ asset('public/assets/images/hero.png') }}" alt="" class="hero-img position-absolute w-100 h-100" style="top:0; left:0; z-index:-1;">
+        <img src="{{ asset('public/assets/builderstreat-html/assets/images/hero.png') }}" alt="" class="hero-img position-absolute w-100 h-100" style="top:0; left:0; z-index:-1;">
         <div class="container">
             <div class="row">
                 <div class="hero-grid">
@@ -33,7 +33,7 @@
 
     <section class="section wrap">
         <div class="about-grid">
-            <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Reusable surplus construction materials">
+            <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-1.jpeg') }}" alt="Reusable surplus construction materials">
             <div>
                 <div class="eyebrow">ABOUT BUILDERSTREAT</div>
                 <h2>Driving the Future of Circular Construction</h2>
@@ -93,7 +93,7 @@
                 @foreach($homeCategories as [$name, $image, $description])
                 <article class="story-card position-relative border-0">
                     <div class="story-photo">
-                        <img src="{{ asset('public/assets/images/' . $image) }}" alt="{{ $name }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
+                        <img src="{{ asset('public/assets/builderstreat-html/assets/images/' . $image) }}" alt="{{ $name }}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">
                     </div>
                     <div class="story-body position-absolute bottom-0 start-0 w-100 p-3">
                         <h3>{{ $name }}</h3>
@@ -127,7 +127,7 @@
                     <article class="bt-card">
                         <div class="bt-media">
                             <a href="{{ route('products.details', $product->id) }}">
-                                <img src="{{ $product->image ? asset($product->image) : asset('public/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
+                                <img src="{{ $product->image ? asset($product->image) : asset('public/assets/builderstreat-html/assets/images/product.jpg') }}" alt="{{ $product->product_name }}" loading="lazy">
                             </a>
                             <button class="wishlist-btn" type="button" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})" aria-label="Toggle wishlist for {{ $product->product_name }}">
                                 <i class="fa-solid fa-heart"></i>
@@ -173,7 +173,7 @@
     </section>
 
     <section class="section position-relative">
-        <img src="{{ asset('public/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
+        <img src="{{ asset('public/assets/builderstreat-html/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
         <div class="wrap">
             <div class="about-grid">
                 <div>
@@ -629,7 +629,7 @@
 
                 <div class="story-photo">
 
-                    <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
+                    <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-1.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
 
                         class="img-fluid w-100 h-100 object-fit-cover">
 
@@ -655,7 +655,7 @@
 
                 <div class="story-photo">
 
-                    <img src="{{ asset('public/assets/images/thumb-2.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
+                    <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-2.jpeg') }}" alt="Building Smarter with Reclaimed Materials"
 
                         class="img-fluid w-100 h-100 object-fit-cover">
 
@@ -681,7 +681,7 @@
 
                 <div class="story-photo">
 
-                    <img src="{{ asset('public/assets/images/thumb-3.png') }}" alt="Building Smarter with Reclaimed Materials"
+                    <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-3.png') }}" alt="Building Smarter with Reclaimed Materials"
 
                         class="img-fluid w-100 h-100 object-fit-cover">
 
@@ -735,7 +735,7 @@
 
                             <div class="testimonial-box text-center">
 
-                                <img src="{{ asset('public/assets/images/client-1.png') }}" class="client-img" alt="">
+                                <img src="{{ asset('public/assets/builderstreat-html/assets/images/client-1.png') }}" class="client-img" alt="">
 
                                 <div class="stars mt-4">
 
@@ -771,7 +771,7 @@
 
                             <div class="testimonial-box text-center">
 
-                                <img src="{{ asset('public/assets/images/client-1.png') }}" class="client-img" alt="">
+                                <img src="{{ asset('public/assets/builderstreat-html/assets/images/client-1.png') }}" class="client-img" alt="">
 
 
 
@@ -809,7 +809,7 @@
 
                             <div class="testimonial-box text-center">
 
-                                <img src="{{ asset('public/assets/images/client-2.png') }}" class="client-img" alt="">
+                                <img src="{{ asset('public/assets/builderstreat-html/assets/images/client-2.png') }}" class="client-img" alt="">
 
 
 
@@ -849,7 +849,7 @@
 
                             <div class="testimonial-box text-center">
 
-                                <img src="{{ asset('public/assets/images/client-3.png') }}" class="client-img" alt="">
+                                <img src="{{ asset('public/assets/builderstreat-html/assets/images/client-3.png') }}" class="client-img" alt="">
 
 
 

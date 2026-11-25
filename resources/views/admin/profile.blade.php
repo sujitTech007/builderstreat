@@ -8,7 +8,7 @@
                     <div class="card shadow-sm mb-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-4">
-                                <img src="{{asset('assets/admin/assets/images/user.png')}}" width="32"
+                                <img src="{{asset('public/assets/admin/assets/images/user.png')}}" width="32"
                                     class="rounded-circle me-lg-2 d-flex userImage" alt="user-image" style="width:50px; height:50px;"> <div>
                                     <h3 class="mb-1">{{ $admin->name }}</h3>
                                     <p class="mb-0 text-muted"><i class="ri-mail-line"></i> {{ $admin->email }}</p>

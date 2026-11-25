@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Seller Dashboard | Builderstreat')</title>
-    <link rel="stylesheet" href="{{ asset('assets/builderstreat-html/dashboard/assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/builderstreat-html/dashboard/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/builderstreat-html/dashboard/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/dashboard/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/dashboard/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/dashboard/assets/css/style.css') }}">
     @stack('styles')
 </head>
 <body>
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <a class="brand bg-transparent p-0" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/builderstreat-html/dashboard/assets/images/logo.png') }}" alt="Builderstreat">
+                    <img src="{{ asset('public/assets/builderstreat-html/dashboard/assets/images/logo.png') }}" alt="Builderstreat">
                 </a>
                 <div class="top-actions">
                     <div class="dropdown">
@@ -149,8 +149,8 @@
         </div>
     </div>
 
-    <script src="{{ asset('assets/builderstreat-html/dashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/builderstreat-html/dashboard/assets/js/dashboard.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/dashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/dashboard/assets/js/dashboard.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.dashboard-notification').forEach(item => {

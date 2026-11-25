@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Builderstreat — Materials Exchange for Surplus Construction Material')</title>
-    <link rel="icon" type="image/png" href="{{ asset('public/assets/images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('public/assets/builderstreat-html/assets/images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/builderstreat-html/assets/css/style.css') }}">
     @stack('styles')
+    @stack('head-scripts')
 </head>
 <body>
     <header>
         <div class="wrap nav">
             <div class="brand">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('public/assets/images/logo.png') }}" alt="Builderstreat">
+                    <img src="{{ asset('public/assets/builderstreat-html/assets/images/logo.png') }}" alt="Builderstreat">
                 </a>
             </div>
             <nav class="links">
@@ -79,7 +80,7 @@
                 <div class="footer-brand">
                     <div class="brand" style="margin-bottom:6px;">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('public/assets/images/logo.png') }}" alt="Builderstreat">
+                            <img src="{{ asset('public/assets/builderstreat-html/assets/images/logo.png') }}" alt="Builderstreat">
                         </a>
                     </div>
                     <p>At Builderstreat, our mission is to revolutionize the construction and demolition waste recycling industry by providing a seamless and sustainable solution for material exchange. We aim to connect stakeholders, minimize waste, and promote eco-friendly practices that build a greener future for all.</p>
@@ -115,9 +116,9 @@
         </div>
     </footer>
 
-    <script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('public/assets/js/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('public/assets/js/script.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/assets/js/script.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.querySelector('.mobile-toggle');

@@ -103,10 +103,17 @@
 
 @section('content')
 
+<div class="page-head">
+    <div>
+        <h1>Browse Materials</h1>
+        <p>Explore available products and save materials you want to revisit.</p>
+    </div>
+</div>
+
 <div class="col-lg-9 col-md-8">
-            <div class="row" id="product-list">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="product-list">
                 @forelse($products as $product)
-                <div class="col-lg-4 col-md-12 mb-4">
+                <div class="col">
                     <div class="card h-100 shadow-sm">
                         <button class="wishlist-btn" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})">
                             <i class="fas fa-heart"></i>

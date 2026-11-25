@@ -183,16 +183,16 @@
     </div>
 
     <!-- Vendor js -->
-    <script src="{{asset('assets/adminassets/js/vendor.min.js.download')}}"></script>
+    <script src="{{asset('public/assets/adminassets/js/vendor.min.js.download')}}"></script>
 
     <!-- App js -->
-    <script src="{{asset('assets/adminassets/js/app.js.download')}}"></script>
+    <script src="{{asset('public/assets/adminassets/js/app.js.download')}}"></script>
 
     <!-- Apex Chart js -->
-    <script src="{{asset('assets/adminassets/js/apexcharts.min.js.download')}}"></script>
+    <script src="{{asset('public/assets/adminassets/js/apexcharts.min.js.download')}}"></script>
 
     <!-- Projects Analytics Dashboard App js -->
-    <script src="{{asset('assets/adminassets/js/dashboard.js.download')}}"></script>
+    <script src="{{asset('public/assets/adminassets/js/dashboard.js.download')}}"></script>
 
 
 

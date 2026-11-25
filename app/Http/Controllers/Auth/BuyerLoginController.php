@@ -64,7 +64,9 @@ class BuyerLoginController extends Controller
 
         return response()->json([
             'status'  => 'otp_sent',
-            'message' => 'OTP sent to your phone number',
+            'message' => app()->environment(['local', 'development'])
+                ? 'Development OTP: 1234'
+                : 'OTP sent to your phone number',
             'user_id' => $user->id
         ]);
 
@@ -80,17 +82,35 @@ class BuyerLoginController extends Controller
 
     private function sendOtp($phone)
     {
-        return json_encode([
-            'status' => 'pending',
-            'development_otp' => '1234',
-        ]);
+        if (app()->environment(['local', 'development'])) {
+            return;
+        }
+
+        $accountSid = env('TWILIO_ACCOUNT_SID');
+        $authToken  = env('TWILIO_AUTH_TOKEN');
+        $verifySid  = env('TWILIO_VERIFY_SID');
+
+        $url = "https://verify.twilio.com/v2/Services/{$verifySid}/Verifications";
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+            'To' => $phone,
+            'Channel' => 'sms'
+        ]));
+        curl_setopt($ch, CURLOPT_USERPWD, "{$accountSid}:{$authToken}");
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return $response;
     }
 
     public function verifyOtp(Request $request)
     {
         $request->validate([
             'user_id' => 'required',
-            'otp'     => 'required|digits:4',
+            'otp'     => ['required', 'regex:/\A(?:[0-9]{4}|[0-9]{6})\z/'],
         ]);
 
         $user = User::find($request->user_id);
@@ -98,8 +118,30 @@ class BuyerLoginController extends Controller
             return response()->json(['error' => 'User not found'], 404);
         }
 
-        if ($request->otp !== '1234') {
-            return response()->json(['error' => 'Invalid or expired OTP'], 422);
+        $developmentOtp = app()->environment(['local', 'development'])
+            && hash_equals('1234', (string) $request->otp);
+
+        if (!$developmentOtp) {
+            $accountSid = env('TWILIO_ACCOUNT_SID');
+            $authToken  = env('TWILIO_AUTH_TOKEN');
+            $verifySid  = env('TWILIO_VERIFY_SID');
+
+            $url = "https://verify.twilio.com/v2/Services/{$verifySid}/VerificationCheck";
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+                'To' => $user->phone,
+                'Code' => $request->otp
+            ]));
+            curl_setopt($ch, CURLOPT_USERPWD, "{$accountSid}:{$authToken}");
+            $response = curl_exec($ch);
+            $twilioResponse = json_decode($response, true);
+            curl_close($ch);
+
+            if (!isset($twilioResponse['status']) || $twilioResponse['status'] !== 'approved') {
+                return response()->json(['error' => 'Invalid or expired OTP'], 422);
+            }
         }
 
         // Mark user active + login
@@ -124,17 +166,58 @@ class BuyerLoginController extends Controller
             return response()->json(['error' => 'Invalid password'], 401);
         }
 
-        return response()->json([
-            'status' => 'otp_sent',
-            'message' => 'Development OTP: 1234',
-        ]);
+        if (app()->environment(['local', 'development'])) {
+            return response()->json([
+                'status' => 'otp_sent',
+                'message' => 'Development OTP: 1234',
+            ]);
+        }
+
+        try {
+            $accountSid = env('TWILIO_ACCOUNT_SID');
+            $authToken  = env('TWILIO_AUTH_TOKEN');
+            $verifySid  = env('TWILIO_VERIFY_SID');
+            $phoneNumber = $user->phone;
+            $url = "https://verify.twilio.com/v2/Services/{$verifySid}/Verifications";
+
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+                'To' => $phoneNumber,
+                'Channel' => 'sms'
+            ]));
+            curl_setopt($ch, CURLOPT_USERPWD, "{$accountSid}:{$authToken}");
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error = curl_error($ch);
+            curl_close($ch);
+
+            if ($httpCode >= 400) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to send OTP.',
+                    'twilio_response' => $response,
+                    'curl_error' => $error,
+                ], 500);
+            }
+
+            return response()->json(['status' => 'otp_sent', 'message' => 'OTP sent successfully']);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'SMS sending failed.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
      public function login(Request $request)
     {
         $request->validate([
             'phone' => 'required',
-            'otp' => 'required|digits:4',
+            'otp' => ['required', 'regex:/\A(?:[0-9]{4}|[0-9]{6})\z/'],
         ]);
 
         // $user = User::where('phone', $request->phone)->first();
@@ -143,53 +226,44 @@ class BuyerLoginController extends Controller
         if (!$user) {
             return back()->withErrors(['phone' => 'User not found'])->withInput();
         }
-        if ($request->otp !== '1234') {
-            return back()->withErrors(['otp' => 'Invalid OTP'])->withInput();
-        }
         // if ($user->is_active != 1) {
         //     return back()->withErrors(['phone' => 'Your account is not active. Please contact our team.'])->withInput();
         // }
 
+        $developmentOtp = app()->environment(['local', 'development'])
+            && hash_equals('1234', (string) $request->otp);
+
+        if (!$developmentOtp) {
+            try {
+                $accountSid = env('TWILIO_ACCOUNT_SID');
+                $authToken  = env('TWILIO_AUTH_TOKEN');
+                $verifySid  = env('TWILIO_VERIFY_SID');
+                $url = "https://verify.twilio.com/v2/Services/{$verifySid}/VerificationCheck";
+
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+                    'To' => $user->phone,
+                    'Code' => $request->otp
+                ]));
+                curl_setopt($ch, CURLOPT_USERPWD, "{$accountSid}:{$authToken}");
+
+                $response = curl_exec($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                $twilioResponse = json_decode($response, true);
+                curl_close($ch);
+
+                if ($httpCode >= 400 || ($twilioResponse['status'] ?? null) !== 'approved') {
+                    return back()->withErrors(['otp' => 'Invalid or expired OTP'])->withInput();
+                }
+            } catch (\Exception $e) {
+                return back()->withErrors(['otp' => 'Failed to verify OTP.'])->withInput();
+            }
+        }
+
         Auth::login($user);
         return redirect()->route('buyer.dashboard')->with('success', 'Login successful!');
-
-        try {
-            $accountSid = env('TWILIO_ACCOUNT_SID');
-            $authToken  = env('TWILIO_AUTH_TOKEN');
-            $verifySid  = env('TWILIO_VERIFY_SID');
-            $phoneNumber = $user->phone;
-            // Ensure phone number is in E.164 format for Twilio (+91 for India, +1 for US, etc.)
-            // if (strpos($phoneNumber, '+') !== 0) {
-            //     $phoneNumber = '+91' . ltrim($phoneNumber, '0');
-            // }
-            $otpCode     = $request->otp;
-
-            $url = "https://verify.twilio.com/v2/Services/{$verifySid}/VerificationCheck";
-
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
-                'To'   => $phoneNumber,
-                'Code' => $otpCode
-            ]));
-            curl_setopt($ch, CURLOPT_USERPWD, "{$accountSid}:{$authToken}");
-
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $twilioResponse = json_decode($response, true);
-            curl_close($ch);
-
-            if ($httpCode >= 400 || $twilioResponse['status'] !== 'approved') {
-                return back()->withErrors(['otp' => 'Invalid or expired OTP'])->withInput();
-            }
-
-            // If OTP is correct
-            Auth::login($user);
-            return redirect()->route('buyer.profile.edit')->with('success', 'Login successful!');
-        } catch (\Exception $e) {
-            return back()->withErrors(['otp' => 'Failed to verify OTP.'])->withInput();
-        }
     }
 
     public function logout(Request $request)

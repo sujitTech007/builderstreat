@@ -31,12 +31,18 @@
   }
 </style>
 
-<h2 class="fw-bold mb-4">Payment History</h2>
+<div class="page-head">
+    <div>
+        <h1>Payment History</h1>
+        <p>Review your subscription payments and plan status.</p>
+    </div>
+</div>
 @if($subscriptions->isEmpty())
-    <div class="alert alert-info">No subscription payments found.</div>
+    <div class="card"><div class="alert alert-info mb-0">No subscription payments found.</div></div>
 @else
+    <div class="card border-0 p-0">
     <div class="table-responsive">
-        <table class="table table-striped align-middle">
+        <table class="table table-striped theme_table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Plan</th>
@@ -86,6 +92,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 
     {{-- Stripe Payment Modal --}}
@@ -223,6 +230,6 @@
 }
     </script>
 
-    {{ $subscriptions->links() }}
+    <div class="mt-3">{{ $subscriptions->links() }}</div>
 @endif
 @endsection

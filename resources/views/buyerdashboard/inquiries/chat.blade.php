@@ -1,35 +1,22 @@
 @extends('layouts.buyer')
 @section('content')
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #e5ddd5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
     .chat-container {
-      width: 400px;
-      height: 600px;
+      width: 100%;
+      max-width: 860px;
+      height: min(72vh, 680px);
+      min-height: 420px;
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      margin-left:400px;
+      box-shadow: 0 8px 28px rgba(24, 35, 25, 0.1);
+      margin: 0 auto;
     }
 
-    .chat-header {
-      background-color: #075E54;
+    .chat-container .chat-header {
+      background-color: #6e7e1d;
       color: white;
       padding: 10px 15px;
       display: flex;
@@ -37,7 +24,7 @@
       gap: 10px;
     }
 
-    .chat-header img {
+    .chat-container .chat-header img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -45,32 +32,32 @@
       border: 2px solid #fff;
     }
 
-    .contact-info {
+    .chat-container .contact-info {
       display: flex;
       flex-direction: column;
     }
 
-    .contact-info .name {
+    .chat-container .contact-info .name {
       font-weight: bold;
       font-size: 16px;
     }
 
-    .contact-info .status {
+    .chat-container .contact-info .status {
       font-size: 12px;
       color: #d9d9d9;
     }
 
-    .chat-messages {
+    .chat-container .chat-messages {
       flex: 1;
       padding: 15px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background-color: #ece5dd;
+      background-color: #f5f6f2;
     }
 
-    .message {
+    .chat-container .message {
       max-width: 70%;
       padding: 10px 15px;
       border-radius: 10px;
@@ -81,37 +68,37 @@
       position: relative;
     }
 
-    .message.sent {
+    .chat-container .message.sent {
       align-self: flex-end;
-      background-color: #dcf8c6;
+      background-color: #edf3d9;
     }
 
-    .message.received {
+    .chat-container .message.received {
       align-self: flex-start;
       background-color: #fff;
       border: 1px solid #ddd;
     }
 
-    .timestamp {
+    .chat-container .timestamp {
       font-size: 10px;
       color: #555;
       align-self: flex-end;
       margin-top: 5px;
     }
 
-    .chat-input {
+    .chat-container .chat-input {
   padding: 10px;
   background-color: #f0f0f0;
   border-top: 1px solid #ddd;
 }
 
-.chat-input form {
+.chat-container .chat-input form {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.chat-input input[type="text"] {
+.chat-container .chat-input input[type="text"] {
   flex: 1;
   padding: 10px 15px;
   border-radius: 20px;
@@ -120,8 +107,8 @@
   font-size: 14px;
 }
 
-.chat-input button {
-  background-color: #075E54;
+.chat-container .chat-input button {
+  background-color: #6e7e1d;
   color: white;
   border: none;
   width: 40px;
@@ -136,11 +123,29 @@
   transition: background 0.3s;
 }
 
-.chat-input button:hover {
-  background-color: #128C7E;
+.chat-container .chat-input button:hover {
+  background-color: #596819;
 }
+
+    @media (max-width: 575.98px) {
+      .chat-container {
+        height: 68vh;
+        min-height: 360px;
+        border-radius: 12px;
+      }
+
+      .chat-container .message {
+        max-width: 88%;
+      }
+    }
   </style>
 
+  <div class="page-head">
+    <div>
+      <h1>Messages</h1>
+      <p>Continue your conversation about this enquiry.</p>
+    </div>
+  </div>
   <div class="chat-container">
 
   <!-- Header -->
@@ -174,7 +179,6 @@
   </div>
 
 </div>
-</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

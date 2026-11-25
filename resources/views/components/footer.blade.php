@@ -3,7 +3,7 @@
     <div class="foot-content">
         <div class="footer-grid">
             <div class="footer-col brand">
-                <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="logo" class="fotter-logo">
+                <img src="{{ asset('public/assets/frontend/images/logo.png') }}" alt="logo" class="fotter-logo">
                 <p class="footer-p">At Builderstreat, our mission is to revolutionize the construction and demolition
                     waste recycling industry by providing a seamless and sustainable solution for material exchange. We
                     aim to connect stakeholders, minimize waste, and promote eco-friendly practices that build a

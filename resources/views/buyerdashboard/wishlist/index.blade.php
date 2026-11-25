@@ -1,13 +1,19 @@
 @extends('layouts.buyer')
 
 @section('content')
-<h2 class="fw-bold mb-4">My Wishlist</h2>
+<div class="page-head">
+    <div>
+        <h1>Saved Materials</h1>
+        <p>Materials you saved to revisit later.</p>
+    </div>
+</div>
 
 @if($wishlists->isEmpty())
-    <div class="alert alert-info">You have no items in your wishlist yet.</div>
+    <div class="card"><div class="alert alert-info mb-0">You have no items in your wishlist yet.</div></div>
 @else
+    <div class="card border-0 p-0">
     <div class="table-responsive">
-        <table class="table table-striped align-middle">
+        <table class="table table-striped theme_table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Product</th>
@@ -40,7 +46,8 @@
             </tbody>
         </table>
     </div>
-    {{ $wishlists->links() }}
+    <div class="mt-3">{{ $wishlists->links() }}</div>
+    </div>
 @endif
 
 <script>

@@ -1,7 +1,12 @@
 @extends('layouts.seller')
 
 @section('content')
-<h2 class="fw-bold mb-4">Add Product</h2>
+<div class="page-head">
+    <div>
+        <h1>Add Material</h1>
+        <p>Create a listing for surplus material available to buyers.</p>
+    </div>
+</div>
 
 <div class="card p-4 mx-auto">
     <form action="{{ route('seller.products.store') }}" method="POST" enctype="multipart/form-data" class="seller-dashboard-form">

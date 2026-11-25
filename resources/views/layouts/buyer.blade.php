@@ -22,7 +22,7 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <a class="brand bg-transparent p-0" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/builderstreat-html/dashboard/assets/images/logo.png') }}" alt="Builderstreat">
+                    <img src="{{ asset('public/assets/builderstreat-html/dashboard/assets/images/logo.png') }}" alt="Builderstreat">
                 </a>
                 <div class="top-actions">
                     <div class="dropdown">
@@ -149,8 +149,8 @@
         </div>
     </div>
 
-    <script src="{{ asset('assets/builderstreat-html/dashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/builderstreat-html/dashboard/assets/js/dashboard.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/dashboard/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('public/assets/builderstreat-html/dashboard/assets/js/dashboard.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const count = document.getElementById('wishlist-count');

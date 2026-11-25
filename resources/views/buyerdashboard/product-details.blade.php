@@ -165,14 +165,20 @@
 </style>
 
 @section('content')
-<div class="col-md-8">
-    <div class="card mb-4">
+<div class="page-head">
+    <div>
+        <h1>Material Details</h1>
+        <p>Review product information and contact the seller with an enquiry.</p>
+    </div>
+</div>
+<div class="col-12">
+    <div class="card mb-4 overflow-hidden">
         <button class="wishlist-btn" data-product-id="{{ $product->id }}" onclick="toggleWishlist({{ $product->id }})">
             <i class="fas fa-heart"></i>
         </button>
         <div class="row g-0">
             <div class="col-md-5">
-                <img src="{{ $product->image ? asset($product->image) : 'https://via.placeholder.com/400x250' }}" class="img-fluid rounded-start w-100" alt="{{ $product->name }}">
+                <img src="{{ $product->image ? asset($product->image) : 'https://via.placeholder.com/400x250' }}" class="img-fluid rounded-start w-100 h-100" alt="{{ $product->name }}" style="object-fit:cover; min-height:280px;">
             </div>
             <div class="col-md-7">
                 <div class="card-body">
@@ -287,11 +293,7 @@
 <script>
     // Check wishlist status on page load
     document.addEventListener('DOMContentLoaded', function() {
-        const productId = {
-            {
-                $product - > id
-            }
-        };
+        const productId = {{ $product->id }};
         checkWishlistStatus(productId);
     });
 

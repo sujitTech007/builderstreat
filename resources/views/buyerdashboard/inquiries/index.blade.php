@@ -1,10 +1,15 @@
 @extends('layouts.buyer')
 
 @section('content')
-<h2 class="fw-bold mb-4">RFQs list</h2>
-<div class="card p-3">
+<div class="page-head">
+    <div>
+        <h1>My Enquiries</h1>
+        <p>Review your material requests and seller responses.</p>
+    </div>
+</div>
+<div class="card border-0 p-0">
     <div class="table-responsive">
-        <table class="table seller-dashboard-table align-middle">
+        <table class="table seller-dashboard-table theme_table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Product</th>
@@ -45,7 +50,7 @@
             </tbody>
         </table>
     </div>
-    <div class="mt-3">
+    <div class="mt-3 px-3 pb-3">
         {{ $inquiries->links() }}
     </div>
 </div>

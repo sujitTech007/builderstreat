@@ -2,15 +2,18 @@
 
 @section('content')
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="fw-bold">My Payments</h2>
+<div class="page-head">
+    <div>
+        <h1>My Payments</h1>
+        <p>Review payments associated with your orders.</p>
+    </div>
 </div>
 @if(session('success'))
 <div class="alert alert-success">{{ session('success') }}</div>
 @endif
-<div class="card p-3">
+<div class="card border-0 p-0">
     <div class="table-responsive">
-        <table class="table seller-dashboard-table align-middle">
+        <table class="table seller-dashboard-table theme_table align-middle mb-0">
             <thead>
         <tr>
             <th>Order ID</th>

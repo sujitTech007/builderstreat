@@ -12,21 +12,21 @@
     <meta content="Coderthemes" name="author">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/admin/assets/images/qby-logo.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/frontend/images/logo.png') }}">
+    <link rel="shortcut icon" href="{{asset('public/assets/admin/assets/images/qby-logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('public/assets/frontend/images/logo.png') }}">
 
     <!-- Vendor css -->
-    <link href="{{ asset('assets/admin/assets/css/vendor.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('public/assets/admin/assets/css/vendor.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- App css -->
-    <link href="{{asset('assets/admin/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style">
+    <link href="{{asset('public/assets/admin/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style">
 
     <!-- Icons css -->
-    <link href="{{asset('assets/admin/assets/css/icons.min.css" rel="stylesheet') }}" type="text/css">
-    <link href="{{asset('assets/admin/assets/css/custom.css" rel="stylesheet') }}" type="text/css">
+    <link href="{{asset('public/assets/admin/assets/css/icons.min.css" rel="stylesheet') }}" type="text/css">
+    <link href="{{asset('public/assets/admin/assets/css/custom.css" rel="stylesheet') }}" type="text/css">
 
     <!-- Theme Config Js -->
-    <script src="{{asset('assets/admin/assets/js/config.js.download')}}"></script>
+    <script src="{{asset('public/assets/admin/assets/js/config.js.download')}}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -34,7 +34,7 @@
 
     <meta charset="UTF-8">
     <title><?php echo isset($title) ? $title : "Default Title"; ?></title>
-    <script src="{{asset('assets/admin/assets/js/chart.js')}}"></script>
+    <script src="{{asset('public/assets/admin/assets/js/chart.js')}}"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
 
             <!-- Brand Logo -->
             <a href="/" class="logo">
-                <img src="{{asset('assets/admin/assets/images/logo.png')}}" alt="" height="100">
+                <img src="{{asset('public/assets/admin/assets/images/logo.png')}}" alt="" height="100">
             </a>
 
             <!-- Full Sidebar Menu Close Button -->
@@ -345,7 +345,7 @@
                         <div class="dropdown">
                             <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown"
                                 data-bs-offset="0,25" type="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="{{asset('assets/admin/assets/images/user.png')}}" width="32"
+                                <img src="{{asset('public/assets/admin/assets/images/user.png')}}" width="32"
                                     class="rounded-circle me-lg-2 d-flex userImage" alt="user-image" style="width:50px; height:50px;">
                                 <span class="d-lg-flex flex-column gap-1 d-none">
 

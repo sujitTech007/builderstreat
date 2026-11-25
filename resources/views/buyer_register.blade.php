@@ -2,6 +2,10 @@
 
 @section('title', 'Buyer Account | Builderstreat')
 
+@push('head-scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+@endpush
+
 @push('styles')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
 @endpush
@@ -243,10 +247,12 @@
                                         <div id="phone-error" style="color: red; font-size: 14px; display: none;" class="mt-1"></div>
 
                                         <div id="otp-container" class="inputs d-flex flex-row justify-content-center mt-3 ot" style="display: none;">
-                                            <input class="m-2 text-center form-control rounded otp-input" required type="text" maxlength="1" />
-                                            <input class="m-2 text-center form-control rounded otp-input" required type="text" maxlength="1" />
-                                            <input class="m-2 text-center form-control rounded otp-input" required type="text" maxlength="1" />
-                                            <input class="m-2 text-center form-control rounded otp-input" required type="text" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
+                                            <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" />
                                         </div>
 
                                         <input type="hidden" name="otp" id="otp" />
@@ -352,6 +358,8 @@
 
 
                                     <div id="otp-container" class="inputs d-flex flex-row justify-content-center mt-3 ot" style="display:none;">
+                                        <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" disabled />
+                                        <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" disabled />
                                         <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" disabled />
                                         <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" disabled />
                                         <input class="m-2 text-center form-control rounded otp-input" type="text" inputmode="numeric" maxlength="1" disabled />
@@ -513,12 +521,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
-        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.getElementById("two-tab").addEventListener("click", function(event) {
             event.preventDefault();
@@ -600,109 +602,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 @push('scripts')
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/swiper.min.js"></script>
-<script src="js/fancybox.min.js"></script>
-<script src="js/odometer.min.js"></script>
-<script src="js/isotope.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/buyer.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- Argon JS -->
-<!-- <script src="js/argon.js?v=1.0.0"></script> -->
-
-<script>
-    $(document).ready(function() {
-        //      $('.center-slider').slick({
-        //        slidesToShow: 3,
-        //        slidesToScroll: 1,
-        //        centerMode: true,
-        //        arrows: true,
-        //        dots: false,
-        //        speed: 300,
-        ////        centerPadding: '20px',
-        //        infinite: true,
-        //        autoplaySpeed: 5000,
-        //        autoplay: true
-        //      });
-
-        $('.my-slider').slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 3,
-
-
-        });
-
-
-
-
-        //
-        //            $('.center-slider').slick({
-        //    dots: true,
-        //    infinite: true,
-        //    speed: 300,
-        //    slidesToShow: 3,
-        //    centerMode: true,
-        //
-        // });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-
-        $('.items').slick({
-            dots: true,
-            arrows: false,
-            infinite: true,
-            speed: 800,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            slidesToShow: 3,
-            slidesToScroll: 4,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-
-            ]
-        });
-    });
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- <script>
     function sendOTP() {
         var phone = $('#phone').val();
@@ -751,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.status === 'otp_sent') {
                     $('#phone-error').hide();
                     $('#otp-container').slideDown();
-                     $('#success-message').text('Use development OTP 1234').show();
+                     $('#success-message').text(response.message).show();
                 }
             },
             error: function(xhr) {
@@ -815,12 +714,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.status === 'otp_sent') {
                 $('#login-phone-error').hide();
                 $('#otp-container').slideDown();
-
-                if (isResend) {
-                    $('#success-message').text('Use development OTP 1234').show();
-                } else {
-                    $('#success-message').text('Use development OTP 1234').show();
-                }
+                $('#success-message').text(response.message).show();
 
                 document.getElementById("resendText").style.display = "block";
             }
@@ -968,7 +862,7 @@ $('#registerForm').on('submit', function(e) {
 
                 Swal.fire({
                     title: "OTP Sent!",
-                    text: "Please enter the 4-digit OTP sent to your phone.",
+                    text: response.message,
                     icon: "success"
                 });
             } else {
@@ -1021,8 +915,8 @@ $(document).on('click', '#verifyOtpBtn', function() {
     let otp = '';
     $('.otp-input:enabled').each(function() { otp += $(this).val(); });
 
-    if (otp.length !== 4) {
-        Swal.fire("Error", "Please enter the 4-digit OTP.", "error");
+    if (otp.length !== 4 && otp.length !== 6) {
+        Swal.fire("Error", "Please enter the 4- or 6-digit OTP.", "error");
         return;
     }
 
@@ -1063,17 +957,12 @@ $(document).on('click', '#verifyOtpBtn', function() {
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Bootstrap JS & jQuery -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
-
 <script>
-  $(document).ready(function () {
-    $('.selectpicker').selectpicker();
-  });
+    $(function() {
+        $('.selectpicker').selectpicker();
+    });
 </script>
 
 <script>

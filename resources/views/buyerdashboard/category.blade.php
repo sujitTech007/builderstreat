@@ -3,24 +3,22 @@
 
 @section('content')
 
-<div class="row">
-        @foreach($categories as $category)      
-<div class="col-lg-4" onclick="passCategoryId(1)">
-    <div class="step-box">
-        <figure class="image">
-          <a href="{{ route('buyer.category.product', $category->id ) }}">  <img src="{{ $category->image }}" alt="Image" class="cat-images" style="width:250px;"></a>
-        </figure>
-        <!-- end content -->
+<div class="page-head">
+    <div>
+        <h1>Browse Categories</h1>
+        <p>Choose a category to explore available materials.</p>
     </div>
-    <!-- end step-box -->   
 </div>
-@endforeach
-<!-- end col-4 -->
 
-
-
-                <!-- end col-4 -->
-            </div>
-    
- 
+<section class="grid-3">
+    @foreach($categories as $category)
+    <a class="material-card" href="{{ route('buyer.category.product', $category->id) }}" onclick="passCategoryId(1)">
+        <img src="{{ $category->image }}" alt="{{ $category->name }}">
+        <div class="body">
+            <h3>{{ $category->name }}</h3>
+            <p class="help">Browse materials in this category.</p>
+        </div>
+    </a>
+    @endforeach
+</section>
 @endsection

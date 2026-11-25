@@ -1,9 +1,15 @@
 @extends('layouts.buyer')
 
 @section('content')
-    <h1 class="h2 mb-4">Order Payment History</h1>
+    <div class="page-head">
+        <div>
+            <h1>Order Payment History</h1>
+            <p>Track payments made for your orders.</p>
+        </div>
+    </div>
+   <div class="card border-0 p-0">
    <div class="table-responsive">
-       <table class="table table-striped align-middle">
+       <table class="table table-striped theme_table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Order ID</th>
@@ -37,6 +43,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 
 @endsection

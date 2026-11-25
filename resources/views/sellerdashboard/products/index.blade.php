@@ -1,9 +1,14 @@
 @extends('layouts.seller')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="fw-bold">My Products</h2>
-    <a href="{{ route('seller.products.create') }}" class="btn btn-success"><i class="fa fa-plus me-1"></i> Add Product</a>
+<div class="page-head">
+    <div>
+        <h1>My Materials</h1>
+        <p>Manage your material listings and check their current status.</p>
+    </div>
+    <div class="actions">
+        <a href="{{ route('seller.products.create') }}" class="btn btn-primary"><i class="fa fa-plus me-1"></i> Add Material</a>
+    </div>
 </div>
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
@@ -65,9 +70,9 @@
     color: white;
 }
 </style>
-<div class="card p-3">
+<div class="card border-0 p-0">
     <div class="table-responsive">
-        <table class="table seller-dashboard-table align-middle">
+        <table class="table seller-dashboard-table theme_table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Image</th>

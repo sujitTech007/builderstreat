@@ -5,7 +5,7 @@
 @section('content')
 <section class="section wrap">
     <div class="about-grid">
-        <img src="{{ asset('public/assets/images/thumb-1.jpeg') }}" alt="Construction materials ready for reuse">
+        <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-1.jpeg') }}" alt="Construction materials ready for reuse">
         <div>
             <div class="eyebrow">ABOUT BUILDERSTREAT</div>
             <h2>Driving the Future of Circular Construction</h2>
@@ -23,7 +23,7 @@
             <p>Our mission is to revolutionize construction and demolition waste recycling by delivering seamless, sustainable solutions for material exchange. We are committed to building a circular economy where overabundant materials are repurposed, waste is minimized, and environmental impact is reduced.</p>
             <p>By leveraging our platform, we empower businesses and individuals to collaborate and contribute to a greener future.</p>
         </div>
-        <img src="{{ asset('public/assets/images/thumb-2.jpeg') }}" alt="Reclaimed construction materials">
+        <img src="{{ asset('public/assets/builderstreat-html/assets/images/thumb-2.jpeg') }}" alt="Reclaimed construction materials">
     </div>
 </section>
 
@@ -37,7 +37,7 @@
 </div>
 
 <section class="section position-relative">
-    <img src="{{ asset('public/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
+    <img src="{{ asset('public/assets/builderstreat-html/assets/images/what-we-do-bg.png') }}" alt="" class="bg-img position-absolute w-100 h-100" style="object-fit:cover; top:0; left:0; z-index:-1;">
     <div class="wrap">
         <div class="about-grid">
             <div>

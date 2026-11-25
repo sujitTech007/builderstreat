@@ -1,69 +1,17 @@
 @extends('layouts.buyer')
- <style>
-   
-    .container {
-      display: flex;
-      gap: 20px;
-    }
-    .form-section, .info-section {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #ccc;
-      flex: 1;
-    }
-    h2 {
-      margin-top: 0;
-      color: #333;
-    }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .add-product {
-      margin-top: 15px;
-      color: green;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .submit-btn {
-      margin-top: 20px;
-      background-color: #6e7d10;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .info-box {
-      margin-bottom: 20px;
-    }
-    .info-box h3 {
-      margin-bottom: 10px;
-      color: #666;
-    }
-    .edit-link {
-      float: right;
-      font-size: 14px;
-      color: green;
-      cursor: pointer;
-    }
-    .checkbox {
-      margin-top: 10px;
-    }
-  </style>
 @section('content')
 
-    
-    <div class="row">
-        <div class="col-md-6 form-section">
-            <h2 class="fw-bold mb-4">RFQ Details</h2>
+    <div class="page-head">
+        <div>
+            <h1>Enquiry Details</h1>
+            <p>Review your request and the delivery information shared with the seller.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100 p-4">
+            <h2 class="h4 fw-bold mb-4">RFQ Details</h2>
             <form action="#" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -80,8 +28,9 @@
                 </div>
                 
             </form>
+            </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <div class="card p-4 mb-4">
                 <h5>Contact Information</h5>
                 <p><strong>Name:</strong> {{ $inquiry->buyer->name }}</p>
@@ -91,7 +40,7 @@
 
             <div class="card p-4 mb-4">
                 <h5>Shipping Address 
-  <a href="#" class="float-right" data-bs-toggle="modal" data-bs-target="#editAddressModal">Edit ✏️</a>
+  <a href="#" class="float-end" data-bs-toggle="modal" data-bs-target="#editAddressModal">Edit ✏️</a>
 </h5>
                 <p><strong>Name:</strong> {{ $inquiry->contact_person }}</p>
                 <p><strong>Company:</strong> {{ $inquiry->buyer->company_name }}</p>
