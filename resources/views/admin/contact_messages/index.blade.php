@@ -6,7 +6,7 @@
             <div>
                 <h1 class="mb-1">Contact Messages</h1>
                 <p class="text-muted mb-0">
-                    Users, material approvals, orders and marketplace activity.
+                    Manage customer inquiries, messages and responses.
                 </p>
             </div>
 

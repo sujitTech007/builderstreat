@@ -59,3 +59,15 @@ document.querySelectorAll(".nav-toggle").forEach((btn) => {
         btn.classList.toggle("open");
     });
 });
+
+
+document.querySelector('.menu-btn').addEventListener('click', function () {
+    const html = document.documentElement;
+
+    html.setAttribute(
+        'data-sidenav-size',
+        html.getAttribute('data-sidenav-size') === 'md-sidebar'
+            ? 'sm-sidebar'
+            : 'md-sidebar'
+    );
+});

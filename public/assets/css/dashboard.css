@@ -78,8 +78,8 @@
   --card: #ffffff;
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
   --radius: 16px;
-  --sidebar: 272px;
-  --topbar: 76px;
+  --sidebar: 240px;
+  --topbar: 60px;
 }
 
 * { box-sizing: border-box; }
@@ -102,10 +102,14 @@ img { max-width: 100%; display: block; }
 }
 
 .fs-10{
-  font-size: 10px;
+  font-size: 10px !important;
 }
 .fs-12{
-  font-size: 12px;
+  font-size: 12px!important;
+}
+
+.fs-14{
+  font-size: 14px!important;
 }
 
 .sidebar {
@@ -133,11 +137,12 @@ img { max-width: 100%; display: block; }
 .brand {
       display: flex;
     align-items: center;
-    padding: 12px;
+    padding:10px;
     background: #f4f0ea;
+    border-bottom: 2px solid #d9d9d9;
 }
 .brand img{
-  height: 50px;
+  height: 40px;
 }
 .brand-mark {
   width: 42px;
@@ -152,16 +157,16 @@ img { max-width: 100%; display: block; }
 .brand strong { display: block; font-size: 15px; }
 .brand span { display: block; color: #bdbdbd; font-size: 11px; }
 .role-chip {
-  margin: 0 10px 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #1c1c1c;
-  border: 1px solid #2c2c2c;
-  color: #f3f3f3;
-  border-radius: 999px;
-  padding: 7px 12px;
-  font-size: 12px;
+  margin: 0 10px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1c1c1c;
+    border: 1px solid #2c2c2c;
+    color: #f3f3f3;
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-size: 10px;
 }
 .role-chip i {
   width: 8px;
@@ -313,19 +318,19 @@ img { max-width: 100%; display: block; }
   gap: 16px;
   margin-bottom: 22px;
 }
-.page-head h1 { margin: 0; font-size: 25px; letter-spacing: -0.04em; }
-.page-head p { margin: 6px 0 0; color: var(--muted); }
+.page-head h1 { margin: 0; font-size: 22px; letter-spacing: -0.04em; font-weight: 600; }
+.page-head p { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   border: 0;
-  border-radius: 12px;
-  padding: 11px 16px;
+  gap:4px;
+  border-radius: 10px;
+  padding: 10px 15px;
   font-weight: 700;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
 }
 .btn-primary { background: var(--primary-color); color: #fff; }
 .btn-primary:hover { background: var(--primary-dark); }
@@ -790,11 +795,11 @@ label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 .theme_table table thead th {
     padding: 15px 5px;
     background: #f8f9fb;
-    color: #667085;
-    border-bottom: 1px solid #eaecf0;
-    font-size: 12px;
+    color: #333;
+    border: 1px solid #f0f2f5;;
+    font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: .4px;
     white-space: nowrap;
 }
@@ -815,7 +820,7 @@ label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
 
 .theme_table table tbody td {
     padding: 10px 5px;
-    font-size: 14px;
+    font-size: 13px;
     vertical-align: middle;
     border-bottom: 1px solid #f0f2f5;
     white-space: nowrap;
@@ -950,3 +955,46 @@ td .table-actions .btn {
   font-size: 30px;
 font-weight:600;
 }
+
+
+[data-sidenav-size="sm-sidebar"] {
+
+  .brand img {
+      width: 35px;
+    height: 28px;
+    object-fit: cover;
+    object-position: left center;
+}
+.side-nav span.menu-text{
+          opacity: 0;
+        white-space: nowrap;
+        position: absolute;
+        left: 50px;
+        z-index: 99999;
+        background: #f4f0ea;
+        font-size: 13px;
+        padding: 10px;
+        border-radius: 0 30px 30px 0;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.sidebar{
+  position: relative;
+}
+.side-nav li:hover span.menu-text{
+opacity: 1;
+}
+.role-chip{
+  display: none;
+}
+.app{
+      grid-template-columns: 80px 1fr;
+}
+.nav a, .nav button.nav-toggle{
+  font-size: 20px;
+}
+.sidebar_nav{
+  padding: 20px 10px;
+}
+
+}
+

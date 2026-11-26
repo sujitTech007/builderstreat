@@ -183,8 +183,8 @@
             <div class="d-flex justify-content-between align-items-center">
 
                 <div>
-                    <h5 class="mb-1">
-                        <i class="fa-solid fa-box me-2 text-primary"></i>
+                    <h5 class="mb-1 fs-6">
+                        <i class="fa-solid fa-box me-2"></i>
                         Recent Orders
                     </h5>
 
@@ -194,7 +194,7 @@
                 </div>
 
                 <a href="orders/index.html"
-                   class="btn btn-sm btn-outline-primary">
+                   class="btn btn-primary fs-12">
                     View All
                 </a>
 

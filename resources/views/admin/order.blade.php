@@ -6,7 +6,7 @@
             <div>
                 <h1 class="mb-1">Order List</h1>
                 <p class="text-muted mb-0">
-                    Users, material approvals, orders and marketplace activity.
+                    Manage orders, payments, deliveries and order status.
                 </p>
             </div>
 

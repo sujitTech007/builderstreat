@@ -4,9 +4,9 @@
     <div class="page-content">
         <div class="d-flex justify-content-between align-items-center mb-4 page-head">
             <div>
-                <h1 class="mb-1">Subscription Plans</h1>
+                <h1 class="mb-1">Subscribed Users</h1>
                 <p class="text-muted mb-0">
-                    Users, material approvals, orders and marketplace activity.
+                   Manage subscribed users, plans, payments and renewals.
                 </p>
             </div>
 

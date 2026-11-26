@@ -6,7 +6,7 @@
             <div>
                 <h1 class="mb-1">Subscription Plans</h1>
                 <p class="text-muted mb-0">
-                    Users, material approvals, orders and marketplace activity.
+                    Manage subscription plans, pricing, features and renewals.
                 </p>
             </div>
             <div>
@@ -35,7 +35,7 @@
 
                     <thead class="table-light">
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <th width="40">ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>

@@ -6,7 +6,7 @@
             <div>
                 <h1 class="mb-1">Seller Request</h1>
                 <p class="text-muted mb-0">
-                    Users, material approvals, orders and marketplace activity.
+                    Manage sellers, approvals, orders and marketplace activity.
                 </p>
             </div>
 
